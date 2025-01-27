@@ -1,0 +1,55 @@
+/* main.css */
+.container {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 0 var(--content-padding);
+}
+
+header {
+    background-color: var(--light-gray);
+    padding: var(--spacing-lg) 0;
+    margin-bottom: var(--spacing-xl);
+}
+
+nav {
+    background-color: var(--primary-color);
+    padding: var(--spacing-md) 0;
+    color: white;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: var(--spacing-md);
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    padding: var(--spacing-sm) var(--spacing-md);
+    border-radius: var(--border-radius);
+    transition: background-color 0.3s ease;
+}
+
+nav a:hover {
+    background-color: var(--secondary-color);
+}
+
+.content-section {
+    margin-bottom: var(--spacing-xl);
+    padding: var(--spacing-lg);
+    background-color: var(--light-gray);
+    border-radius: var(--border-radius);
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    :root {
+        --content-padding: var(--spacing-sm);
+    }
+    
+    nav ul {
+        flex-direction: column;
+        align-items: center;
+    }
+}
