@@ -1,30 +1,45 @@
 /* variables.css */
 :root {
-    /* Fargepalett */
-    --primary-color: #2c3e50;
-    --secondary-color: #34495e;
-    --accent-color: #3498db;
-    --background-color: #ffffff;
-    --text-color: #333333;
-    --light-gray: #f4f4f4;
+    /* 
+    Fargepalett - Endre disse verdiene for å oppdatere alle farger på nettsiden
+    Du kan finne nye farger ved å bruke verktøy som coolors.co 
+    */
+    --primary-color: #2c3e50;    /* Hovedfarge, brukes i navigasjon */
+    --secondary-color: #34495e;   /* Sekundærfarge, brukes for hover-effekter */
+    --accent-color: #3498db;      /* Aksentfarge, brukes for å fremheve elementer */
+    --background-color: #ffffff;  /* Bakgrunnsfarge for hele siden */
+    --text-color: #333333;       /* Standard tekstfarge */
+    --light-gray: #f4f4f4;       /* Brukes for å skille seksjoner */
     
-    /* Typografi */
+    /* 
+    Typografi - Disse verdiene styrer all tekst på nettsiden
+    Endre font-family for å bruke andre fonter (husk å oppdatere Google Fonts lenken i HTML)
+    */
     --font-primary: 'Inter', system-ui, -apple-system, sans-serif;
-    --font-size-base: 16px;
-    --line-height-base: 1.6;
+    --font-size-base: 16px;      /* Grunnleggende tekststørrelse */
+    --line-height-base: 1.6;     /* Linjehøyde for bedre lesbarhet */
     
-    /* Spacing */
-    --spacing-xs: 0.25rem;  /* 4px */
-    --spacing-sm: 0.5rem;   /* 8px */
-    --spacing-md: 1rem;     /* 16px */
-    --spacing-lg: 2rem;     /* 32px */
-    --spacing-xl: 4rem;     /* 64px */
+    /* 
+    Spacing - Disse verdiene brukes for å skape konsistent mellomrom
+    Endre disse for å justere luft mellom elementer 
+    */
+    --spacing-xs: 0.25rem;       /* 4px - Minimalt mellomrom */
+    --spacing-sm: 0.5rem;        /* 8px - Lite mellomrom */
+    --spacing-md: 1rem;          /* 16px - Standard mellomrom */
+    --spacing-lg: 2rem;          /* 32px - Stort mellomrom */
+    --spacing-xl: 4rem;          /* 64px - Ekstra stort mellomrom */
     
-    /* Container */
+    /* 
+    Container - Styrer bredden på innholdet
+    Endre max-width for å gjøre siden bredere eller smalere
+    */
     --max-width: 1200px;
     --content-padding: var(--spacing-md);
     
-    /* Border */
+    /* 
+    Border - Styrer utseendet på kanter og avrundede hjørner
+    Endre disse for å justere visuell stil på bokser og knapper
+    */
     --border-radius: 8px;
     --border-width: 1px;
     --border-color: #e1e1e1;

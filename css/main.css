@@ -1,55 +1,167 @@
 /* main.css */
+
+/*
+===============================
+GRUNNLEGGENDE LAYOUT
+===============================
+Container-klassen brukes for å sentrere innhold og gi konsistent bredde.
+Den brukes rundt hovedinnholdet i hver seksjon av nettsiden.
+*/
 .container {
-    max-width: var(--max-width);
-    margin: 0 auto;
-    padding: 0 var(--content-padding);
+    max-width: var(--max-width);        /* Maksbredde fra variables.css */
+    margin: 0 auto;                     /* Sentrerer innholdet horisontalt */
+    padding: 0 var(--content-padding);  /* Gir luft på sidene */
 }
 
-header {
-    background-color: var(--light-gray);
-    padding: var(--spacing-lg) 0;
-    margin-bottom: var(--spacing-xl);
-}
-
+/*
+===============================
+NAVIGASJONSMENY
+===============================
+Styler navigasjonsmenyen øverst på siden.
+For å endre menyens utseende kan du justere:
+- background-color for å endre bakgrunnsfargen
+- padding for å endre høyden
+- gap for å endre avstanden mellom lenkene
+*/
 nav {
     background-color: var(--primary-color);
     padding: var(--spacing-md) 0;
     color: white;
 }
 
+/* Fjerner punkter fra menylisten og setter opp horisontal meny */
 nav ul {
     list-style: none;
-    display: flex;
-    gap: var(--spacing-md);
+    display: flex;                /* Gjør menyen horisontal */
+    gap: var(--spacing-md);      /* Mellomrom mellom menyvalg */
+    justify-content: center;      /* Sentrerer menyvalgene */
 }
 
+/* Styling av lenker i navigasjonsmenyen */
 nav a {
     color: white;
     text-decoration: none;
     padding: var(--spacing-sm) var(--spacing-md);
     border-radius: var(--border-radius);
-    transition: background-color 0.3s ease;
+    transition: background-color 0.3s ease; /* Myk overgang ved hover */
 }
 
+/* Hover-effekt når man holder musepekeren over lenker */
 nav a:hover {
     background-color: var(--secondary-color);
 }
 
-.content-section {
-    margin-bottom: var(--spacing-xl);
-    padding: var(--spacing-lg);
+/*
+===============================
+HEADER-SEKSJON
+===============================
+Styler den store header-seksjonen øverst på siden.
+Dette er det første besøkende ser, så det er viktig at den ser bra ut.
+*/
+header {
     background-color: var(--light-gray);
-    border-radius: var(--border-radius);
+    padding: var(--spacing-xl) 0;        /* Stor vertikal padding for visuell effekt */
+    margin-bottom: var(--spacing-xl);    /* Luft under headeren */
+    text-align: center;                  /* Sentrert tekst */
 }
 
-/* Responsive design */
+/* Styling av overskrift i header */
+header h1 {
+    color: var(--primary-color);
+    margin-bottom: var(--spacing-md);
+    font-size: 2.5rem;                   /* Stor overskrift */
+}
+
+/* Styling av undertekst i header */
+header p {
+    color: var(--secondary-color);
+    font-size: 1.2rem;                   /* Litt større enn normal tekst */
+}
+
+/*
+===============================
+INNHOLDSSEKSJONER
+===============================
+Styler de ulike innholdsseksjonene på siden.
+Hver seksjon er en 'content-section' med egen bakgrunn og padding.
+*/
+.content-section {
+    background-color: var(--light-gray);
+    padding: var(--spacing-lg);          /* God padding rundt innholdet */
+    margin-bottom: var(--spacing-xl);    /* Luft mellom seksjoner */
+    border-radius: var(--border-radius); /* Avrundede hjørner */
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1); /* Lett skygge for dybde */
+}
+
+/* Styling av overskrifter i innholdsseksjoner */
+.content-section h2 {
+    color: var(--primary-color);
+    margin-bottom: var(--spacing-md);
+    font-size: 1.8rem;
+}
+
+/* Styling av tekst i innholdsseksjoner */
+.content-section p {
+    color: var(--text-color);
+    margin-bottom: var(--spacing-md);
+    line-height: var(--line-height-base);
+}
+
+/*
+===============================
+FOOTER (BUNNTEKST)
+===============================
+Styler bunnteksten som vises nederst på siden.
+*/
+footer {
+    background-color: var(--light-gray);
+    padding: var(--spacing-lg) 0;
+    margin-top: var(--spacing-xl);
+    text-align: center;
+}
+
+footer p {
+    color: var(--secondary-color);
+}
+
+/*
+===============================
+RESPONSIVE DESIGN
+===============================
+Disse reglene trer i kraft på mindre skjermer (under 768px bredde).
+Dette sikrer at nettsiden ser bra ut på mobil og nettbrett.
+*/
 @media (max-width: 768px) {
-    :root {
-        --content-padding: var(--spacing-sm);
+    /* Endrer navigasjonsmenyen til vertikal på små skjermer */
+    nav ul {
+        flex-direction: column;    /* Stacker menyvalg vertikalt */
+        align-items: center;       /* Sentrerer menyvalg */
+        gap: var(--spacing-sm);    /* Mindre mellomrom mellom valg */
     }
     
-    nav ul {
-        flex-direction: column;
-        align-items: center;
+    /* Justerer header-padding på små skjermer */
+    header {
+        padding: var(--spacing-lg) 0;
+    }
+    
+    /* Mindre tekststørrelser på mobil */
+    header h1 {
+        font-size: 2rem;
+    }
+    
+    /* Mindre padding i innholdsseksjoner */
+    .content-section {
+        padding: var(--spacing-md);
     }
 }
+
+/*
+===============================
+NYTTIGE HJELPEKLASSER
+===============================
+Disse klassene kan du legge til på HTML-elementer for å oppnå
+spesifikke stiler uten å måtte skrive ny CSS.
+*/
+.text-center { text-align: center; }
+.margin-bottom { margin-bottom: var(--spacing-lg); }
+.padding-large { padding: var(--spacing-xl); }

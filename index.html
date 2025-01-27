@@ -1,19 +1,37 @@
 <!DOCTYPE html>
 <html lang="no">
 <head>
+    <!-- 
+    Meta-tagger er viktige for:
+    - Riktig tegnsett (charset)
+    - Responsivt design (viewport)
+    - SEO (søkemotoroptimalisering)
+    -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Emil Garden</title>
     
-    <!-- CSS filer i riktig rekkefølge for cascade -->
+    <!-- 
+    CSS-filer lastes i denne rekkefølgen fordi:
+    1. variables.css definerer globale variabler
+    2. normalize.css nullstiller nettleser-standarder
+    3. main.css inneholder dine egne stiler
+    -->
     <link rel="stylesheet" href="css/variables.css">
     <link rel="stylesheet" href="css/normalize.css">
     <link rel="stylesheet" href="css/main.css">
     
-    <!-- Google Fonts -->
+    <!-- 
+    Google Fonts gir deg tilgang til profesjonelle fonter
+    Du kan endre fonten ved å bytte 'Inter' med en annen font fra fonts.google.com 
+    -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap">
 </head>
 <body>
+    <!-- 
+    Navigasjonsmenyen (nav) vises øverst på alle sider
+    For å legge til flere menypunkter, legg til flere <li> elementer
+    -->
     <nav>
         <div class="container">
             <ul>
@@ -24,6 +42,10 @@
         </div>
     </nav>
 
+    <!-- 
+    Header-seksjonen er det første besøkende ser
+    Dette er et bra sted å endre hovedoverskriften og intro-teksten
+    -->
     <header>
         <div class="container">
             <h1>Velkommen til min nettside</h1>
@@ -31,6 +53,11 @@
         </div>
     </header>
 
+    <!-- 
+    Hovedinnholdet på siden organiseres i seksjoner
+    Hver content-section får automatisk styling fra CSS
+    Du kan legge til flere seksjoner ved å kopiere hele section-blokken
+    -->
     <main class="container">
         <section class="content-section">
             <h2>Siste prosjekter</h2>
@@ -43,13 +70,20 @@
         </section>
     </main>
 
+    <!-- 
+    Footer vises nederst på alle sider
+    Her kan du legge til kontaktinfo, sosiale medier-lenker, eller andre viktige lenker
+    -->
     <footer>
         <div class="container">
             <p>&copy; 2025 Emil Garden. Alle rettigheter forbeholdt.</p>
         </div>
     </footer>
 
-    <!-- JavaScript -->
+    <!-- 
+    JavaScript-filen lastes til slutt for bedre ytelse
+    Her kan du legge til interaktiv funksjonalitet senere
+    -->
     <script src="js/main.js"></script>
 </body>
 </html>

@@ -1,18 +1,128 @@
-/* normalize.css - Forenklet versjon */
+/* normalize.css */
+
+/*
+===============================
+GRUNNLEGGENDE RESET OG BOKMODELL
+===============================
+Dette er det første og viktigste steget i normalize.css. Det sikrer at
+alle elementer oppfører seg forutsigbart ved å bruke en mer logisk
+bokmodell og fjerne standardmarginer som varierer mellom nettlesere.
+*/
 *, *::before, *::after {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
+    box-sizing: border-box;    /* Gjør at padding og border inkluderes i elementets totale bredde */
+    margin: 0;                 /* Fjerner alle standardmarginer */
+    padding: 0;                /* Fjerner all standardpadding */
 }
 
+/*
+===============================
+HTML OG BODY GRUNNINNSTILLINGER
+===============================
+Disse innstillingene påvirker hele dokumentet og setter opp
+grunnleggende typografi og renderingsregler.
+*/
 html {
-    font-size: var(--font-size-base);
-    line-height: var(--line-height-base);
-    -webkit-text-size-adjust: 100%;
+    font-size: var(--font-size-base);     /* Setter basis fontstørrelse (typisk 16px) */
+    line-height: var(--line-height-base);  /* Setter standard linjehøyde */
+    -webkit-text-size-adjust: 100%;        /* Forhindrer automatisk tekstskalering på iOS */
+    -webkit-font-smoothing: antialiased;   /* Gir bedre tekstrendering på macOS */
+    -moz-osx-font-smoothing: grayscale;    /* Gir bedre tekstrendering på macOS Firefox */
 }
 
 body {
-    font-family: var(--font-primary);
-    color: var(--text-color);
-    background-color: var(--background-color);
+    font-family: var(--font-primary);      /* Bruker hovedfonten definert i variables.css */
+    color: var(--text-color);              /* Setter standard tekstfarge */
+    background-color: var(--background-color); /* Setter standard bakgrunnsfarge */
+    min-height: 100vh;                     /* Sikrer at body alltid er minst like høy som visningsvinduet */
+}
+
+/*
+===============================
+TEKST OG TYPOGRAFI NORMALISERING
+===============================
+Disse reglene sikrer konsistent tekstrendering og fjerner
+uønskede standardstiler fra tekstelementer.
+*/
+h1, h2, h3, h4, h5, h6 {
+    font-weight: 700;                      /* Setter overskrifter til fet skrift */
+    line-height: 1.2;                      /* Tettere linjeavstand for overskrifter */
+}
+
+p, ul, ol {
+    margin-bottom: 1rem;                   /* Gir naturlig avstand etter tekstblokker */
+}
+
+/*
+===============================
+LENKER OG INTERAKTIVE ELEMENTER
+===============================
+Standardiserer utseende og oppførsel for interaktive elementer.
+*/
+a {
+    text-decoration: none;                 /* Fjerner understreking fra lenker */
+    color: inherit;                        /* Arver tekstfarge fra forelder */
+    cursor: pointer;                       /* Tydelig markør for klikkbare elementer */
+}
+
+button {
+    border: none;                          /* Fjerner standard knappekant */
+    background: none;                      /* Fjerner standard knappebakgrunn */
+    cursor: pointer;                       /* Tydelig markør for klikkbare elementer */
+    font: inherit;                         /* Arver fontinnstillinger */
+}
+
+/*
+===============================
+BILDER OG MEDIA
+===============================
+Sikrer at bilder og media oppfører seg forutsigbart og responsivt.
+*/
+img, video, svg {
+    max-width: 100%;                       /* Hindrer at media blir større enn container */
+    height: auto;                          /* Beholder aspektforhold */
+    display: block;                        /* Fjerner uønsket mellomrom under bilder */
+}
+
+/*
+===============================
+SKJEMAELEMENTER
+===============================
+Normaliserer utseende og oppførsel for skjemaelementer på tvers av nettlesere.
+*/
+input, textarea, select {
+    font: inherit;                         /* Arver fontinnstillinger */
+    color: inherit;                        /* Arver tekstfarge */
+    border: 1px solid var(--border-color); /* Konsistent kantlinje */
+    border-radius: var(--border-radius);   /* Avrundede hjørner */
+    background-color: transparent;         /* Gjennomsiktig bakgrunn */
+}
+
+/*
+===============================
+TILGJENGELIGHET OG FOKUS
+===============================
+Forbedrer synlighet av fokuserte elementer for tilgjengelighet.
+*/
+:focus {
+    outline: 2px solid var(--accent-color); /* Tydelig fokusindikator */
+    outline-offset: 2px;                    /* Litt avstand til fokusrammen */
+}
+
+/* Skjuler fokusring for mus, men beholder den for tastatur */
+:focus:not(:focus-visible) {
+    outline: none;
+}
+
+/*
+===============================
+UTSKRIFT
+===============================
+Grunnleggende optimalisering for utskrift.
+*/
+@media print {
+    * {
+        background: transparent !important; /* Fjerner bakgrunner ved utskrift */
+        color: #000 !important;            /* Sikrer lesbar svart tekst */
+        box-shadow: none !important;       /* Fjerner skygger */
+    }
 }
