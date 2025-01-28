@@ -2,166 +2,498 @@
 
 /*
 ===============================
-GRUNNLEGGENDE LAYOUT
+GENERELLE STILER
 ===============================
-Container-klassen brukes for å sentrere innhold og gi konsistent bredde.
-Den brukes rundt hovedinnholdet i hver seksjon av nettsiden.
 */
-.container {
-    max-width: var(--max-width);        /* Maksbredde fra variables.css */
-    margin: 0 auto;                     /* Sentrerer innholdet horisontalt */
-    padding: 0 var(--content-padding);  /* Gir luft på sidene */
+/* Container begrenser innholdets bredde og sentrerer det på siden
+   --max-width og --spacing-md er definert i variables.css */
+   .container {
+    max-width: var(--max-width);
+    margin: 0 auto; /* Sentrerer container horisontalt */
+    padding: 0 var(--spacing-md); /* Legger til luft på sidene */
+}
+
+/* Styling for alle seksjoners overskrifter */
+.section-title {
+    font-size: 2rem; /* Størrelse på overskrift */
+    color: var(--primary-color); /* Fargen definert i variables.css */
+    margin-bottom: var(--spacing-lg); /* Avstand til innholdet under */
+    text-align: center;
+}
+
+/* Basis knappestil som brukes av alle knapper */
+.btn {
+    display: inline-block;
+    padding: 0.8rem 1.5rem; /* Indre spacing: 0.8rem topp/bunn, 1.5rem høyre/venstre */
+    border-radius: var(--border-radius); /* Runde hjørner */
+    text-decoration: none; /* Fjerner understreking */
+    font-weight: 500; /* Medium font-weight */
+    transition: all 0.3s ease; /* Smooth overgang ved hover */
+}
+
+/* Primær knapp - fylt bakgrunn */
+.btn-primary {
+    background-color: var(--accent-color);
+    color: white;
+}
+
+.btn-primary:hover {
+    background-color: var(--secondary-color); /* Endrer farge ved hover */
+}
+
+/* Sekundær knapp - kun border */
+.btn-secondary {
+    background-color: transparent;
+    color: var(--primary-color);
+    border: 2px solid var(--primary-color);
+}
+
+.btn-secondary:hover {
+    background-color: var(--primary-color);
+    color: white;
 }
 
 /*
 ===============================
-NAVIGASJONSMENY
+NAVIGASJON
 ===============================
-Styler navigasjonsmenyen øverst på siden.
-For å endre menyens utseende kan du justere:
-- background-color for å endre bakgrunnsfargen
-- padding for å endre høyden
-- gap for å endre avstanden mellom lenkene
 */
-nav {
+/* Hovednavigasjonsbar som sitter fast øverst */
+.main-nav {
     background-color: var(--primary-color);
     padding: var(--spacing-md) 0;
+    position: fixed; /* Holder nav-baren fast øverst */
+    width: 100%;
+    top: 0;
+    z-index: 1000; /* Sikrer at nav-baren ligger over alt annet innhold */
+}
+
+/* Flex-container for logo og meny */
+.nav-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Logo-container */
+.nav-brand {
+    margin-right: var(--spacing-lg);
+}
+
+/* Logo-lenke styling */
+.nav-brand a {
     color: white;
+    font-size: 1.5rem;
+    font-weight: 700; /* Bold tekst */
+    text-decoration: none;
 }
 
-/* Fjerner punkter fra menylisten og setter opp horisontal meny */
-nav ul {
+/* Meny-liste container */
+.nav-links {
+    display: flex;
+    gap: var(--spacing-md); /* Mellomrom mellom meny-elementer */
     list-style: none;
-    display: flex;                /* Gjør menyen horisontal */
-    gap: var(--spacing-md);      /* Mellomrom mellom menyvalg */
-    justify-content: center;      /* Sentrerer menyvalgene */
+    margin: 0;
+    padding: 0;
 }
 
-/* Styling av lenker i navigasjonsmenyen */
-nav a {
+/* Styling av meny-lenker */
+.nav-links a {
     color: white;
     text-decoration: none;
-    padding: var(--spacing-sm) var(--spacing-md);
+    padding: 0.5rem 1rem;
     border-radius: var(--border-radius);
-    transition: background-color 0.3s ease; /* Myk overgang ved hover */
+    transition: background-color 0.3s ease;
 }
 
-/* Hover-effekt når man holder musepekeren over lenker */
-nav a:hover {
+/* Hover og aktiv tilstand for meny-lenker */
+.nav-links a:hover,
+.nav-links a.active {
     background-color: var(--secondary-color);
 }
 
 /*
 ===============================
-HEADER-SEKSJON
+HERO-SEKSJON
 ===============================
-Styler den store header-seksjonen øverst på siden.
-Dette er det første besøkende ser, så det er viktig at den ser bra ut.
 */
-header {
+/* Hero-seksjon - første synlige del av siden */
+.hero {
+    padding: calc(var(--spacing-xl) * 2) 0;
     background-color: var(--light-gray);
-    padding: var(--spacing-xl) 0;        /* Stor vertikal padding for visuell effekt */
-    margin-bottom: var(--spacing-xl);    /* Luft under headeren */
-    text-align: center;                  /* Sentrert tekst */
+    margin-top: 60px; /* Kompenserer for fixed nav-bar */
 }
 
-/* Styling av overskrift i header */
-header h1 {
+/* Sentrert innhold i hero-seksjonen */
+.hero-content {
+    text-align: center;
+    max-width: 800px; /* Begrenser tekstbredden for bedre lesbarhet */
+    margin: 0 auto;
+}
+
+/* Hovedoverskrift i hero */
+.hero h1 {
+    font-size: 3.5rem;
     color: var(--primary-color);
     margin-bottom: var(--spacing-md);
-    font-size: 2.5rem;                   /* Stor overskrift */
+    font-weight: 700;
 }
 
-/* Styling av undertekst i header */
-header p {
+/* Undertekst i hero */
+.hero-subtitle {
+    font-size: 1.5rem;
     color: var(--secondary-color);
-    font-size: 1.2rem;                   /* Litt større enn normal tekst */
+    margin-bottom: var(--spacing-lg);
+    line-height: 1.4; /* Øker linjehøyde for bedre lesbarhet */
+}
+
+/* Container for knapper i hero */
+.hero-buttons {
+    display: flex;
+    gap: var(--spacing-md);
+    justify-content: center;
 }
 
 /*
 ===============================
-INNHOLDSSEKSJONER
+PROSJEKT-GRID
 ===============================
-Styler de ulike innholdsseksjonene på siden.
-Hver seksjon er en 'content-section' med egen bakgrunn og padding.
 */
-.content-section {
-    background-color: var(--light-gray);
-    padding: var(--spacing-lg);          /* God padding rundt innholdet */
-    margin-bottom: var(--spacing-xl);    /* Luft mellom seksjoner */
-    border-radius: var(--border-radius); /* Avrundede hjørner */
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1); /* Lett skygge for dybde */
+/* Seksjon for fremhevede prosjekter */
+.featured-projects {
+    padding: var(--spacing-xl) 0;
+    background-color: white;
 }
 
-/* Styling av overskrifter i innholdsseksjoner */
-.content-section h2 {
+/* Grid-layout for prosjektkort */
+.project-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Responsive grid */
+    gap: var(--spacing-lg);
+}
+
+/* Styling av hvert prosjektkort */
+.project-card {
+    background: white;
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+/* Hover-effekt på prosjektkort */
+.project-card:hover {
+    transform: translateY(-5px); /* Løfter kortet litt opp */
+}
+
+/* Container for prosjektbilde */
+.project-image {
+    width: 100%;
+    height: 200px;
+    overflow: hidden;
+}
+
+/* Styling av prosjektbilder */
+.project-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Sikrer at bildet fyller containeren uten å strekkes */
+}
+
+/* Tekstinnhold i prosjektkort */
+.project-content {
+    padding: var(--spacing-md);
+}
+
+/* Prosjekttittel */
+.project-content h3 {
     color: var(--primary-color);
-    margin-bottom: var(--spacing-md);
-    font-size: 1.8rem;
+    margin-bottom: var(--spacing-sm);
+    font-size: 1.25rem;
+    font-weight: 600;
 }
 
-/* Styling av tekst i innholdsseksjoner */
-.content-section p {
+/* Prosjektbeskrivelse */
+.project-content p {
     color: var(--text-color);
     margin-bottom: var(--spacing-md);
-    line-height: var(--line-height-base);
+    line-height: 1.5;
+}
+
+/* Les mer-lenke i prosjektkort */
+.project-link {
+    color: var(--accent-color);
+    text-decoration: none;
+    font-weight: 500;
+    display: inline-block;
+    margin-top: var(--spacing-sm);
+}
+
+.project-link:hover {
+    text-decoration: underline;
 }
 
 /*
 ===============================
-FOOTER (BUNNTEKST)
+BLOGG-GRID
 ===============================
-Styler bunnteksten som vises nederst på siden.
 */
-footer {
+/* Bloggseksjon */
+.latest-posts {
+    padding: var(--spacing-xl) 0;
     background-color: var(--light-gray);
-    padding: var(--spacing-lg) 0;
-    margin-top: var(--spacing-xl);
-    text-align: center;
 }
 
-footer p {
+/* Grid for bloggkort */
+.post-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: var(--spacing-lg);
+}
+
+/* Styling av bloggkort */
+.post-card {
+    background: white;
+    padding: var(--spacing-md);
+    border-radius: var(--border-radius);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Innholdscontainer i bloggkort */
+.post-content {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-sm);
+}
+
+/* Datostempel på blogginnlegg */
+.post-date {
     color: var(--secondary-color);
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+/* Bloggtittel */
+.post-card h3 {
+    margin: var(--spacing-sm) 0;
+    color: var(--primary-color);
+    font-size: 1.25rem;
+    font-weight: 600;
+}
+
+/* Bloggutdrag */
+.post-card p {
+    color: var(--text-color);
+    line-height: 1.5;
+    margin-bottom: var(--spacing-md);
+}
+
+/* Les mer-lenke i bloggkort */
+.post-link {
+    color: var(--accent-color);
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.post-link:hover {
+    text-decoration: underline;
+}
+
+/*
+===============================
+INTERESSER
+===============================
+*/
+/* Interesseseksjon */
+.interests {
+    padding: var(--spacing-xl) 0;
+    background-color: white;
+}
+
+/* Grid for interessekort */
+.interests-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: var(--spacing-lg);
+}
+
+/* Styling av interessekort */
+.interest-card {
+    padding: var(--spacing-md);
+    background: white;
+    border-radius: var(--border-radius);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Innholdscontainer i interessekort */
+.interest-content {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-sm);
+}
+
+/* Interessetittel */
+.interest-card h3 {
+    color: var(--primary-color);
+    margin-bottom: var(--spacing-sm);
+    font-size: 1.25rem;
+    font-weight: 600;
+}
+
+/* Interessebeskrivelse */
+.interest-card p {
+    color: var(--text-color);
+    line-height: 1.5;
+    margin-bottom: var(--spacing-md);
+}
+
+/* Les mer-lenke i interessekort */
+.interest-link {
+    color: var(--accent-color);
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.interest-link:hover {
+    text-decoration: underline;
+}
+
+/*
+===============================
+FOOTER
+===============================
+*/
+/* Hovedfooter */
+footer {
+    background-color: var(--primary-color);
+    color: white;
+    padding: var(--spacing-xl) 0 var(--spacing-md);
+}
+
+/* Grid-layout for footer-innhold */
+.footer-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: var(--spacing-xl);
+    margin-bottom: var(--spacing-xl);
+}
+
+/* Venstre del av footer med logo og beskrivelse */
+.footer-left h3 {
+    font-size: 1.5rem;
+    margin-bottom: var(--spacing-sm);
+    font-weight: 700;
+}
+
+.footer-left p {
+    opacity: 0.8;
+}
+
+/* Overskrifter i footer-seksjoner */
+.footer-nav h4,
+.footer-social h4 {
+    font-size: 1.1rem;
+    margin-bottom: var(--spacing-md);
+    font-weight: 600;
+}
+
+/* Footer-lister */
+.footer-nav ul,
+.footer-social ul {
+    list-style: none;
+    padding: 0;
+}
+
+/* Footer-listeelementer */
+.footer-nav li,
+.footer-social li {
+    margin-bottom: var(--spacing-sm);
+}
+
+/* Footer-lenker */
+.footer-nav a,
+.footer-social a {
+    color: white;
+    text-decoration: none;
+    opacity: 0.8;
+    transition: opacity 0.3s ease;
+}
+
+.footer-nav a:hover,
+.footer-social a:hover {
+    opacity: 1;
+}
+
+/* Copyright-seksjon i footer */
+.footer-bottom {
+    text-align: center;
+    padding-top: var(--spacing-md);
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.footer-bottom p {
+    opacity: 0.8;
+    font-size: 0.9rem;
 }
 
 /*
 ===============================
 RESPONSIVE DESIGN
 ===============================
-Disse reglene trer i kraft på mindre skjermer (under 768px bredde).
-Dette sikrer at nettsiden ser bra ut på mobil og nettbrett.
 */
+/* Mobilvisning - aktiveres når skjermbredden er mindre enn 768px */
 @media (max-width: 768px) {
-    /* Endrer navigasjonsmenyen til vertikal på små skjermer */
-    nav ul {
-        flex-direction: column;    /* Stacker menyvalg vertikalt */
-        align-items: center;       /* Sentrerer menyvalg */
-        gap: var(--spacing-sm);    /* Mindre mellomrom mellom valg */
+    /* Endrer navigasjon til vertikal stabling */
+    .nav-content {
+        flex-direction: column;
+        gap: var(--spacing-md);
     }
-    
-    /* Justerer header-padding på små skjermer */
-    header {
-        padding: var(--spacing-lg) 0;
+
+    /* Endrer meny til vertikal liste */
+    .nav-links {
+        flex-direction: column;
+        text-align: center;
+        width: 100%;
     }
-    
-    /* Mindre tekststørrelser på mobil */
-    header h1 {
-        font-size: 2rem;
+
+    /* Justerer logo-margin for mobil */
+    .nav-brand {
+        margin-right: 0;
+        margin-bottom: var(--spacing-sm);
     }
-    
-    /* Mindre padding i innholdsseksjoner */
-    .content-section {
-        padding: var(--spacing-md);
+
+    /* Øker margin-top for hero på mobil pga høyere nav */
+    .hero {
+        margin-top: 120px;
+    }
+
+    /* Reduserer tekststørrelser for mobil */
+    .hero h1 {
+        font-size: 2.5rem;
+    }
+
+    .hero-subtitle {
+        font-size: 1.2rem;
+    }
+
+    /* Stacker hero-knapper vertikalt */
+    .hero-buttons {
+        flex-direction: column;
+        gap: var(--spacing-md);
+    }
+
+    /* Endrer footer til én kolonne */
+    .footer-content {
+        grid-template-columns: 1fr;
+        text-align: center;
+        gap: var(--spacing-lg);
+    }
+
+    /* Sentrerer footer-lister */
+    .footer-nav ul,
+    .footer-social ul {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
     }
 }
-
-/*
-===============================
-NYTTIGE HJELPEKLASSER
-===============================
-Disse klassene kan du legge til på HTML-elementer for å oppnå
-spesifikke stiler uten å måtte skrive ny CSS.
-*/
-.text-center { text-align: center; }
-.margin-bottom { margin-bottom: var(--spacing-lg); }
-.padding-large { padding: var(--spacing-xl); }

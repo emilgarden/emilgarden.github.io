@@ -1,95 +1,134 @@
 <!DOCTYPE html>
 <html lang="no">
 <head>
-    <!-- 
-    Meta-tagger er viktige for:
-    - Riktig tegnsett (charset)
-    - Responsivt design (viewport)
-    - SEO (søkemotoroptimalisering)
-    -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ole Emil Øygarden</title>
-    
-    <!-- 
-    CSS-filer lastes i denne rekkefølgen fordi:
-    1. variables.css definerer globale variabler
-    2. normalize.css nullstiller nettleser-standarder
-    3. main.css inneholder dine egne stiler
-    -->
+    <title>Emil Garden - Portfolio & Blog</title>
     <link rel="stylesheet" href="css/variables.css">
     <link rel="stylesheet" href="css/normalize.css">
     <link rel="stylesheet" href="css/main.css">
-    
-    <!-- 
-    Google Fonts gir deg tilgang til profesjonelle fonter
-    Du kan endre fonten ved å bytte 'Inter' med en annen font fra fonts.google.com 
-    -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap">
 </head>
 <body>
-    <!-- 
-    Navigasjonsmenyen (nav) vises øverst på alle sider
-    For å legge til flere menypunkter, legg til flere <li> elementer
-    -->
-    <nav>
+    <!-- Hovednavigasjon -->
+    <nav class="main-nav">
         <div class="container">
-            <ul>
-                <li><a href="index.html">Hjem</a></li>
-                <li><a href="pages/blogg.html">Arbeidsblogg</a></li>
-                <li><a href="pages/about.html">Om meg</a></li>
-                <li><a href="pages/contact.html">Kontakt</a></li>
-            </ul>
+            <div class="nav-content">
+                <div class="nav-brand">
+                    <a href="index.html">EG</a>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="index.html" class="active">Hjem</a></li>
+                    <li><a href="prosjekter/index.html">Prosjekter</a></li>
+                    <li><a href="blogg/index.html">Blogg</a></li>
+                    <li><a href="interesser/index.html">Interesser</a></li>
+                    <li><a href="om/index.html">Om Meg</a></li>
+                </ul>
+            </div>
         </div>
     </nav>
 
-    <!-- 
-    Header-seksjonen er det første besøkende ser
-    Dette er et bra sted å endre hovedoverskriften og intro-teksten
-    -->
-    <header>
+    <!-- Hero-seksjon -->
+    <header class="hero">
         <div class="container">
-            <h1>Velkommen til min nettside</h1>
-            <p>Her vil jeg dele mine prosjekter og tanker</p>
+            <div class="hero-content">
+                <h1>Emil Garden</h1>
+                <p class="hero-subtitle">Utforsker teknologi, språk og kreative prosjekter</p>
+                <div class="hero-buttons">
+                    <a href="prosjekter/index.html" class="btn btn-primary">Se mine prosjekter</a>
+                    <a href="om/index.html" class="btn btn-secondary">Om meg</a>
+                </div>
+            </div>
         </div>
     </header>
 
-    <!-- 
-    Hovedinnholdet på siden organiseres i seksjoner
-    Hver content-section får automatisk styling fra CSS
-    Du kan legge til flere seksjoner ved å kopiere hele section-blokken
-    -->
-    <main class="container">
-        <section class="content-section">
-            <h2>Siste prosjekter</h2>
-            <p>Her kommer det snart spennende prosjekter!</p>
+    <main>
+        <!-- Utvalgte prosjekter -->
+        <section class="featured-projects">
+            <div class="container">
+                <h2 class="section-title">Utvalgte Prosjekter</h2>
+                <div class="project-grid">
+                    <!-- Prosjektkort vil legges til her -->
+                    <article class="project-card">
+                        <div class="project-image">
+                            <img src="assets/images/placeholder.jpg" alt="Prosjekt 1">
+                        </div>
+                        <div class="project-content">
+                            <h3>Prosjekt 1</h3>
+                            <p>Kort beskrivelse av prosjektet...</p>
+                            <a href="#" class="project-link">Les mer</a>
+                        </div>
+                    </article>
+                    <!-- Flere prosjektkort her -->
+                </div>
+            </div>
         </section>
 
-        <section class="content-section">
-            <h2>Om meg</h2>
-            <p>Jeg er en utvikler som er interessert i web-teknologi og innovative løsninger.</p>
+        <!-- Siste blogginnlegg -->
+        <section class="latest-posts">
+            <div class="container">
+                <h2 class="section-title">Siste fra Bloggen</h2>
+                <div class="post-grid">
+                    <article class="post-card">
+                        <div class="post-content">
+                            <span class="post-date">28. januar 2025</span>
+                            <h3>Bloggtittel</h3>
+                            <p>Kort utdrag fra blogginnlegget...</p>
+                            <a href="#" class="post-link">Les mer</a>
+                        </div>
+                    </article>
+                    <!-- Flere bloggkort her -->
+                </div>
+            </div>
         </section>
 
-        <section class="content-section">
-            <h2>Arbeidsblogg</h2>
-            <p>Her legger jeg ut blogginnlegg hvor jeg skriver litt om prosjektene jeg holder på med og generelt tenker høyt rundt teknologien.</p>
+        <!-- Interesser -->
+        <section class="interests">
+            <div class="container">
+                <h2 class="section-title">Mine Interesser</h2>
+                <div class="interests-grid">
+                    <article class="interest-card">
+                        <div class="interest-content">
+                            <h3>Interesse 1</h3>
+                            <p>Kort beskrivelse av interessen...</p>
+                            <a href="#" class="interest-link">Les mer</a>
+                        </div>
+                    </article>
+                    <!-- Flere interessekort her -->
+                </div>
+            </div>
         </section>
     </main>
 
-    <!-- 
-    Footer vises nederst på alle sider
-    Her kan du legge til kontaktinfo, sosiale medier-lenker, eller andre viktige lenker
-    -->
     <footer>
         <div class="container">
-            <p>&copy; 2025 Ole Emil Øygarden. Alle rettigheter forbeholdt.</p>
+            <div class="footer-content">
+                <div class="footer-left">
+                    <h3>Emil Garden</h3>
+                    <p>Utforsker og skaper</p>
+                </div>
+                <div class="footer-nav">
+                    <h4>Navigasjon</h4>
+                    <ul>
+                        <li><a href="prosjekter/index.html">Prosjekter</a></li>
+                        <li><a href="blogg/index.html">Blogg</a></li>
+                        <li><a href="interesser/index.html">Interesser</a></li>
+                        <li><a href="om/index.html">Om Meg</a></li>
+                    </ul>
+                </div>
+                <div class="footer-social">
+                    <h4>Sosiale Medier</h4>
+                    <ul>
+                        <li><a href="#">GitHub</a></li>
+                        <li><a href="#">LinkedIn</a></li>
+                        <li><a href="#">Twitter</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Emil Garden. Alle rettigheter forbeholdt.</p>
+            </div>
         </div>
     </footer>
-
-    <!-- 
-    JavaScript-filen lastes til slutt for bedre ytelse
-    Her kan du legge til interaktiv funksjonalitet senere
-    -->
-    <script src="js/main.js"></script>
 </body>
 </html>

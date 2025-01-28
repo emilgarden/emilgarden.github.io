@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blogg - Emil Garden</title>
+    <link rel="stylesheet" href="../css/variables.css">
+    <link rel="stylesheet" href="../css/normalize.css">
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../css/blog.css">
+</head>
+<body>
+    <!-- Hovednavigasjon -->
+    <nav class="main-nav">
+        <div class="container">
+            <ul>
+                <li><a href="../index.html">Hjem</a></li>
+                <li><a href="../prosjekter/index.html">Prosjekter</a></li>
+                <li><a href="index.html" class="active">Blogg</a></li>
+                <li><a href="../interesser/index.html">Interesser</a></li>
+                <li><a href="../om/index.html">Om Meg</a></li>
+            </ul>
+        </div>
+    </nav>
+    
+    <!-- Sideheader -->
+    <header class="page-header">
+        <div class="container">
+            <h1>Min Blogg</h1>
+            <p>Tanker og refleksjoner om teknologi, utvikling og læring</p>
+        </div>
+    </header>
+
+    <main class="container">
+        <!-- Blogginnlegg filter og søk -->
+        <section class="blog-controls">
+            <div class="blog-search">
+                <input type="search" placeholder="Søk i blogginnlegg...">
+            </div>
+            <div class="blog-categories">
+                <select>
+                    <option value="">Alle kategorier</option>
+                    <option value="teknologi">Teknologi</option>
+                    <option value="utvikling">Utvikling</option>
+                    <option value="design">Design</option>
+                </select>
+            </div>
+        </section>
+
+        <!-- Blogginnlegg grid -->
+        <section class="blog-grid">
+            <!-- Blogginnlegg 1 -->
+            <article class="blog-card">
+                <div class="blog-image">
+                    <img src="../assets/images/blog1.jpg" alt="Blogginnlegg om webutvikling">
+                </div>
+                <div class="blog-content">
+                    <div class="blog-meta">
+                        <span class="blog-date">28. januar 2025</span>
+                        <span class="blog-category">Teknologi</span>
+                    </div>
+                    <h2>Moderne Webutvikling i 2025</h2>
+                    <p>En oversikt over de viktigste trendene og verktøyene i moderne webutvikling, med fokus på ytelse og brukeropplevelse.</p>
+                    <a href="innlegg/moderne-webutvikling-2025.html" class="blog-link">Les mer</a>
+                </div>
+            </article>
+
+            <!-- Blogginnlegg 2 -->
+            <article class="blog-card">
+                <div class="blog-image">
+                    <img src="../assets/images/blog2.jpg" alt="Blogginnlegg om design">
+                </div>
+                <div class="blog-content">
+                    <div class="blog-meta">
+                        <span class="blog-date">25. januar 2025</span>
+                        <span class="blog-category">Design</span>
+                    </div>
+                    <h2>Designprinsipper for Bedre Brukergrensesnitt</h2>
+                    <p>En gjennomgang av grunnleggende designprinsipper som kan hjelpe deg å skape mer intuitive og brukervennlige grensesnitt.</p>
+                    <a href="innlegg/designprinsipper-ui.html" class="blog-link">Les mer</a>
+                </div>
+            </article>
+
+            <!-- Blogginnlegg 3 -->
+            <article class="blog-card">
+                <div class="blog-image">
+                    <img src="../assets/images/blog3.jpg" alt="Blogginnlegg om utvikling">
+                </div>
+                <div class="blog-content">
+                    <div class="blog-meta">
+                        <span class="blog-date">20. januar 2025</span>
+                        <span class="blog-category">Utvikling</span>
+                    </div>
+                    <h2>Effektiv Kodestruktur i Store Prosjekter</h2>
+                    <p>Tips og triks for å holde kodebasen ryddig og vedlikeholdbar når prosjektene vokser i størrelse og kompleksitet.</p>
+                    <a href="innlegg/effektiv-kodestruktur.html" class="blog-link">Les mer</a>
+                </div>
+            </article>
+        </section>
+
+        <!-- Paginering -->
+        <nav class="blog-pagination">
+            <a href="#" class="pagination-prev" aria-label="Forrige side">&larr; Forrige</a>
+            <div class="pagination-numbers">
+                <a href="#" class="active">1</a>
+                <a href="#">2</a>
+                <a href="#">3</a>
+            </div>
+            <a href="#" class="pagination-next" aria-label="Neste side">Neste &rarr;</a>
+        </nav>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Emil Garden. Alle rettigheter forbeholdt.</p>
+        </div>
+    </footer>
+</body>
+</html>

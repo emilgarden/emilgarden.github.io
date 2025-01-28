@@ -4,12 +4,12 @@
     Fargepalett - Endre disse verdiene for å oppdatere alle farger på nettsiden
     Du kan finne nye farger ved å bruke verktøy som coolors.co 
     */
-    --primary-color: #2c3e50;    /* Hovedfarge, brukes i navigasjon */
-    --secondary-color: #34495e;   /* Sekundærfarge, brukes for hover-effekter */
-    --accent-color: #3498db;      /* Aksentfarge, brukes for å fremheve elementer */
-    --background-color: #ffffff;  /* Bakgrunnsfarge for hele siden */
-    --text-color: #333333;       /* Standard tekstfarge */
-    --light-gray: #f4f4f4;       /* Brukes for å skille seksjoner */
+    --primary-color: #2D2D2D;     /* Mørk grå - for header */
+    --secondary-color: #C0392B;   /* Dyp rød - for hover */
+    --accent-color: #E74C3C;      /* Livlig rød - for aksenter */
+    --background-color: #FFFFFF;  /* Ren hvit - for bakgrunn */
+    --text-color: #333333;       /* Nesten svart - for tekst */
+    --light-gray: #F9F3F3;       /* Rosa-tonet lys - for seksjoner */
     
     /* 
     Typografi - Disse verdiene styrer all tekst på nettsiden
