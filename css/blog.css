@@ -1,209 +1,112 @@
-/* blog.css */
-
 /*
 ===============================
-BLOGG KONTROLLER
+BLOGG-GRID
 ===============================
+Denne seksjonen definerer layouten for blogginnlegg i et responsivt rutenett.
+Seksjonen er designet for å presentere blogginnlegg på en oversiktlig og 
+lesevennlig måte, med fokus på god lesbarhet og visuell hierarki.
 */
-/* Søk og filtreringsseksjon */
-.blog-controls {
-    display: flex;
-    gap: var(--spacing-md);
-    margin: var(--spacing-lg) 0;
-    flex-wrap: wrap;
-}
 
-.blog-search {
-    flex: 1;
-    min-width: 250px;
-}
-
-.blog-search input {
-    width: 100%;
-    padding: 0.75rem 1rem;
-    border: 1px solid var(--border-color);
-    border-radius: var(--border-radius);
-    font-size: 1rem;
-    transition: border-color 0.3s ease;
-}
-
-.blog-search input:focus {
-    outline: none;
-    border-color: var(--accent-color);
-}
-
-.blog-categories {
-    min-width: 200px;
-}
-
-.blog-categories select {
-    width: 100%;
-    padding: 0.75rem 1rem;
-    border: 1px solid var(--border-color);
-    border-radius: var(--border-radius);
-    font-size: 1rem;
-    background-color: white;
-    cursor: pointer;
-}
-
-/*
-===============================
-BLOGGINNLEGG GRID
-===============================
-*/
-.blog-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    gap: var(--spacing-xl);
-    margin-bottom: var(--spacing-xl);
-}
-
-.blog-card {
-    background: white;
-    border-radius: var(--border-radius);
-    overflow: hidden;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease;
-}
-
-.blog-card:hover {
-    transform: translateY(-5px);
-}
-
-/* Bloggbilde */
-.blog-image {
-    width: 100%;
-    height: 200px;
-    overflow: hidden;
-}
-
-.blog-image img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: transform 0.3s ease;
-}
-
-.blog-card:hover .blog-image img {
-    transform: scale(1.05);
-}
-
-/* Blogginnhold */
-.blog-content {
-    padding: var(--spacing-md);
-}
-
-.blog-meta {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: var(--spacing-sm);
-    font-size: 0.9rem;
-}
-
-.blog-date {
-    color: var(--secondary-color);
-}
-
-.blog-category {
-    color: var(--accent-color);
-    font-weight: 500;
-}
-
-.blog-content h2 {
-    font-size: 1.25rem;
-    color: var(--primary-color);
-    margin-bottom: var(--spacing-sm);
-    font-weight: 600;
-    line-height: 1.4;
-}
-
-.blog-content p {
-    color: var(--text-color);
-    margin-bottom: var(--spacing-md);
-    line-height: 1.6;
-}
-
-.blog-link {
-    color: var(--accent-color);
-    text-decoration: none;
-    font-weight: 500;
-    display: inline-block;
-}
-
-.blog-link:hover {
-    text-decoration: underline;
-}
-
-/*
-===============================
-PAGINERING
-===============================
-*/
-.blog-pagination {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: var(--spacing-lg);
-    margin: var(--spacing-xl) 0;
-}
-
-.pagination-numbers {
-    display: flex;
-    gap: var(--spacing-sm);
-}
-
-.pagination-numbers a,
-.pagination-prev,
-.pagination-next {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    min-width: 2.5rem;
-    height: 2.5rem;
-    padding: 0 0.75rem;
-    border-radius: var(--border-radius);
-    color: var(--text-color);
-    text-decoration: none;
-    transition: all 0.3s ease;
-}
-
-.pagination-numbers a {
-    font-weight: 500;
-}
-
-.pagination-numbers a.active {
-    background-color: var(--accent-color);
-    color: white;
-}
-
-.pagination-numbers a:hover:not(.active),
-.pagination-prev:hover,
-.pagination-next:hover {
-    background-color: var(--light-gray);
-}
-
-/*
-===============================
-RESPONSIVE DESIGN
-===============================
-*/
-@media (max-width: 768px) {
-    .blog-controls {
-        flex-direction: column;
+/* Hovedcontainer for bloggseksjonen
+   Denne seksjonen:
+   - Har stor vertikal padding for å skape luftig layout
+   - Bruker lysegrå bakgrunnsfarge for å:
+     * Skille seksjonen visuelt fra andre seksjoner
+     * Skape kontrast mot de hvite bloggkortene
+     * Gi et roligere visuelt uttrykk */
+     .latest-posts {
+        padding: var(--spacing-xl) 0;
+        background-color: var(--light-gray);
     }
-
-    .blog-search,
-    .blog-categories {
-        width: 100%;
-    }
-
-    .blog-grid {
-        grid-template-columns: 1fr;
+    
+    /* Grid-container for bloggkort
+       Bruker CSS Grid for responsivt layout hvor:
+       - repeat(auto-fit, minmax(300px, 1fr)) betyr:
+         * auto-fit: Tilpasser antall kolonner automatisk
+         * minmax(300px, 1fr): Hver kolonne er minimum 300px
+         * 1fr: Kolonner deler tilgjengelig plass likt
+       - gap skaper jevn avstand mellom kortene 
+       Dette gir en fleksibel layout som fungerer på alle skjermstørrelser */
+    .post-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
         gap: var(--spacing-lg);
     }
-
-    .blog-pagination {
-        flex-direction: column;
-        gap: var(--spacing-md);
+    
+    /* Styling for individuelle bloggkort
+       Hvert kort er designet som et hvitt "card" med:
+       - Hvit bakgrunn for å skape kontrast mot seksjonsfargen
+       - Padding for å gi innholdet luft
+       - Avrundede hjørner for et mykere utseende
+       - Subtil skygge for å gi dybde og skille kortet fra bakgrunnen */
+    .post-card {
+        background: white;
+        padding: var(--spacing-md);
+        border-radius: var(--border-radius);
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     }
-}
+    
+    /* Container for bloggkortets innhold
+       Bruker flexbox i vertikal retning for å:
+       - Styre avstanden mellom elementene konsistent
+       - Organisere innholdet i en logisk rekkefølge
+       - Skape jevn spacing mellom alle elementer via gap */
+    .post-content {
+        display: flex;
+        flex-direction: column;
+        gap: var(--spacing-sm);
+    }
+    
+    /* Styling av datostempel
+       Designet for å være subtilt men lesbart:
+       - Bruker sekundærfarge for å være mindre fremtredende
+       - Mindre skriftstørrelse (0.9rem) enn hovedteksten
+       - Medium font-weight for god lesbarhet tross mindre størrelse */
+    .post-date {
+        color: var(--secondary-color);
+        font-size: 0.9rem;
+        font-weight: 500;
+    }
+    
+    /* Styling av blogginnleggstittel
+       Tittelen er fremhevet med:
+       - Primærfarge for å indikere viktighet
+       - Større skriftstørrelse (1.25rem = 20px)
+       - Semi-bold vekt for tydelighet
+       - Margin over og under for å skille fra andre elementer */
+    .post-card h3 {
+        margin: var(--spacing-sm) 0;
+        color: var(--primary-color);
+        font-size: 1.25rem;
+        font-weight: 600;
+    }
+    
+    /* Styling av bloggutdrag/ingress
+       Fokuserer på god lesbarhet med:
+       - Standard tekstfarge for behagelig lesing
+       - Økt linjehøyde (1.5) for bedre lesbarhet
+       - Margin under for å skille fra "Les mer"-lenken */
+    .post-card p {
+        color: var(--text-color);
+        line-height: 1.5;
+        margin-bottom: var(--spacing-md);
+    }
+    
+    /* Styling av "Les mer"-lenke
+       Designet for å være tydelig klikkbar:
+       - Bruker aksent-farge for å skille den ut
+       - Fjerner standard understreking
+       - Medium font-weight for bedre synlighet
+       - Legger til understreking ved hover for å indikere interaktivitet */
+    .post-link {
+        color: var(--accent-color);
+        text-decoration: none;
+        font-weight: 500;
+    }
+    
+    /* Hover-effekt for "Les mer"-lenke
+       Legger til understreking når musepekeren svever over
+       for å gi visuell feedback om at lenken er klikkbar */
+    .post-link:hover {
+        text-decoration: underline;
+    }

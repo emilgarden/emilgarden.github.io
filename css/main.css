@@ -4,61 +4,104 @@
 ===============================
 GENERELLE STILER
 ===============================
+Dette er grunnleggende stiler som brukes over hele nettsiden.
+De definerer hvordan basis-elementene skal se ut og oppføre seg.
 */
-/* Container begrenser innholdets bredde og sentrerer det på siden
-   --max-width og --spacing-md er definert i variables.css */
+
+/* Container-klassen brukes for å:
+   1. Begrense innholdets bredde (hindrer at innholdet blir for bredt på store skjermer)
+   2. Sentrere innholdet horisontalt på siden
+   3. Legge til luft på sidene av innholdet 
+   
+   --max-width og --spacing-md er variabler definert i variables.css 
+   Dette gjør det enkelt å endre disse verdiene globalt */
    .container {
     max-width: var(--max-width);
     margin: 0 auto; /* Sentrerer container horisontalt */
     padding: 0 var(--spacing-md); /* Legger til luft på sidene */
 }
 
-/* Styling for alle seksjoners overskrifter */
+/* Denne klassen brukes for alle seksjonsoverskrifter på siden
+   Den sørger for konsistent styling av hovedoverskrifter i hver seksjon */
 .section-title {
-    font-size: 2rem; /* Størrelse på overskrift */
-    color: var(--primary-color); /* Fargen definert i variables.css */
-    margin-bottom: var(--spacing-lg); /* Avstand til innholdet under */
-    text-align: center;
+    font-size: 2rem; /* Stor tekst for å fremheve overskriften */
+    color: var(--primary-color); /* Bruker primærfargen definert i variables.css */
+    margin-bottom: var(--spacing-lg); /* God avstand til innholdet under */
+    text-align: center; /* Sentrerer overskriften */
 }
 
-/* Basis knappestil som brukes av alle knapper */
+/* Basis knappestil som alle knapper arver fra
+   Dette sikrer konsistent utseende på knapper over hele siden */
 .btn {
-    display: inline-block;
-    padding: 0.8rem 1.5rem; /* Indre spacing: 0.8rem topp/bunn, 1.5rem høyre/venstre */
-    border-radius: var(--border-radius); /* Runde hjørner */
-    text-decoration: none; /* Fjerner understreking */
-    font-weight: 500; /* Medium font-weight */
-    transition: all 0.3s ease; /* Smooth overgang ved hover */
+    display: inline-block; /* Gjør at knappen oppfører seg som tekst, men kan ha margin/padding */
+    padding: 0.8rem 1.5rem; /* God størrelse for klikkeflate */
+    border-radius: var(--border-radius); /* Runde hjørner fra variabel */
+    text-decoration: none; /* Fjerner standard understrek på lenker */
+    font-weight: 500; /* Litt tykkere tekst for bedre lesbarhet */
+    transition: all 0.3s ease; /* Myk animasjon ved hover */
 }
 
-/* Primær knapp - fylt bakgrunn */
+/* Primærknapp - brukes for hovedhandlinger
+   Har fylt bakgrunn med aksent-farge */
 .btn-primary {
     background-color: var(--accent-color);
     color: white;
 }
 
+/* Hover-effekt for primærknapp 
+   Endrer bakgrunnsfarge når musepeker svever over */
 .btn-primary:hover {
-    background-color: var(--secondary-color); /* Endrer farge ved hover */
+    background-color: var(--secondary-color);
 }
 
-/* Sekundær knapp - kun border */
+/* Sekundærknapp - brukes for mindre viktige handlinger
+   Har transparent bakgrunn med ramme */
 .btn-secondary {
     background-color: transparent;
     color: var(--primary-color);
     border: 2px solid var(--primary-color);
 }
 
+/* Hover-effekt for sekundærknapp
+   Fyller knappen med farge når musepeker svever over */
 .btn-secondary:hover {
     background-color: var(--primary-color);
     color: white;
+}
+
+/* Generell hover-effekt for alle lenker på siden
+   Gjør lenken litt transparent når musepeker svever over */
+a:hover {
+    opacity: 0.8;
+    transition: opacity 0.2s ease;
+}
+
+/* Avansert hover-effekt for knapper
+   1. Løfter knappen litt opp
+   2. Legger til en subtil skygge
+   Dette gir en "flytende" effekt */
+.btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: all 0.2s ease;
+}
+
+/* Aktiverer myk scrolling når man klikker på anker-lenker
+   Dette gir en bedre brukeropplevelse ved navigasjon på siden */
+html {
+    scroll-behavior: smooth;
 }
 
 /*
 ===============================
 NAVIGASJON
 ===============================
+Dette er styling for hovednavigasjonen (menyen) på toppen av siden.
 */
-/* Hovednavigasjonsbar som sitter fast øverst */
+
+/* Hovednavigasjonsbaren
+   - Sitter fast øverst på siden (følger med når man scroller)
+   - Har høy z-index for å ligge over annet innhold */
 .main-nav {
     background-color: var(--primary-color);
     padding: var(--spacing-md) 0;
@@ -68,36 +111,90 @@ NAVIGASJON
     z-index: 1000; /* Sikrer at nav-baren ligger over alt annet innhold */
 }
 
-/* Flex-container for logo og meny */
+/* Flex-container for logo og meny
+   Bruker flexbox for å:
+   1. Plassere logo til venstre
+   2. Plassere meny til høyre
+   3. Sentrere elementene vertikalt */
 .nav-content {
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
-/* Logo-container */
+/*
+===============================
+NAVIGASJON
+===============================
+Denne seksjonen definerer utseende og oppførsel for nettsidens hovednavigasjon.
+Navigasjonen er responsiv og tilpasser seg forskellige skjermstørrelser.
+*/
+
+/* Hovednavigasjonsbaren
+   Denne klassen skaper en fast navigasjonsbar på toppen av siden med følgende egenskaper:
+   - Bakgrunnsfargen hentes fra CSS-variabler for konsistent fargebruk
+   - Position: fixed holder navigasjonen synlig selv når siden scrolles
+   - Width: 100% gjør at navigasjonen strekker seg over hele sidens bredde
+   - Z-index: 1000 sikrer at navigasjonen alltid vises over annet innhold */
+   .main-nav {
+    background-color: var(--primary-color);
+    padding: var(--spacing-md) 0;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+}
+
+/* Flex-container for navigasjonsinnhold
+   Bruker flexbox-layout for å:
+   - Plassere logo og meny på samme linje
+   - Fordele plassen mellom logo (venstre) og meny (høyre)
+   - Sentrere elementene vertikalt */
+.nav-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Logo-container
+   Legger til mellomrom mellom logo og menylenker
+   Bruker CSS-variabel for konsistent spacing på tvers av siden */
 .nav-brand {
     margin-right: var(--spacing-lg);
 }
 
-/* Logo-lenke styling */
+/* Logo-lenke styling
+   Definerer utseendet på logo-teksten med:
+   - Hvit farge for kontrast mot mørk bakgrunn
+   - Større skriftstørrelse (1.5rem = 24px ved standard font-størrelse)
+   - Fet skrift (700) for bedre synlighet
+   - Fjerner standard understreking på lenker */
 .nav-brand a {
     color: white;
     font-size: 1.5rem;
-    font-weight: 700; /* Bold tekst */
+    font-weight: 700;
     text-decoration: none;
 }
 
-/* Meny-liste container */
+/* Meny-liste container
+   Bruker flexbox for å:
+   - Plassere menyelementer horisontalt på samme linje
+   - Legge til jevnt mellomrom mellom elementene (gap)
+   - Fjerne standard listestil og spacing */
 .nav-links {
     display: flex;
-    gap: var(--spacing-md); /* Mellomrom mellom meny-elementer */
+    gap: var(--spacing-md);
     list-style: none;
     margin: 0;
     padding: 0;
 }
 
-/* Styling av meny-lenker */
+/* Styling av individuelle menylenker
+   Skaper klikkbare områder med:
+   - Hvit tekst for kontrast
+   - Padding for større klikkbart område
+   - Avrundede hjørner (border-radius)
+   - Myk overgang på hover-effekt */
 .nav-links a {
     color: white;
     text-decoration: none;
@@ -106,271 +203,93 @@ NAVIGASJON
     transition: background-color 0.3s ease;
 }
 
-/* Hover og aktiv tilstand for meny-lenker */
+/* Hover og aktiv tilstand for menylenker
+   Endrer bakgrunnsfarge når:
+   - Musepekeren svever over lenken (hover)
+   - Lenken er aktiv (representerer nåværende side)
+   Dette gir visuell feedback til brukeren */
 .nav-links a:hover,
 .nav-links a.active {
     background-color: var(--secondary-color);
 }
 
-/*
-===============================
-HERO-SEKSJON
-===============================
-*/
-/* Hero-seksjon - første synlige del av siden */
-.hero {
-    padding: calc(var(--spacing-xl) * 2) 0;
-    background-color: var(--light-gray);
-    margin-top: 60px; /* Kompenserer for fixed nav-bar */
-}
-
-/* Sentrert innhold i hero-seksjonen */
-.hero-content {
-    text-align: center;
-    max-width: 800px; /* Begrenser tekstbredden for bedre lesbarhet */
-    margin: 0 auto;
-}
-
-/* Hovedoverskrift i hero */
-.hero h1 {
-    font-size: 3.5rem;
-    color: var(--primary-color);
-    margin-bottom: var(--spacing-md);
-    font-weight: 700;
-}
-
-/* Undertekst i hero */
-.hero-subtitle {
+/* Hamburger-meny knapp for mobil
+   Er skjult som standard (display: none)
+   Vises kun på mindre skjermer (se media query under)
+   Styling gjør knappen enkel og tydelig:
+   - Ingen bakgrunn eller ramme
+   - Hvit farge for kontrast
+   - Musepeker endres til hand-ikon */
+.nav-toggle {
+    display: none;
+    background: none;
+    border: none;
     font-size: 1.5rem;
-    color: var(--secondary-color);
-    margin-bottom: var(--spacing-lg);
-    line-height: 1.4; /* Øker linjehøyde for bedre lesbarhet */
+    color: white;
+    cursor: pointer;
 }
 
-/* Container for knapper i hero */
-.hero-buttons {
-    display: flex;
-    gap: var(--spacing-md);
-    justify-content: center;
-}
+/* Responsiv design for mobil
+   Aktiveres når skjermbredden er 768px eller mindre
+   Endrer navigasjonens layout fra horisontal til vertikal */
+@media (max-width: 768px) {
+    /* Viser hamburger-meny knappen */
+    .nav-toggle {
+        display: block;
+    }
 
-/*
-===============================
-PROSJEKT-GRID
-===============================
-*/
-/* Seksjon for fremhevede prosjekter */
-.featured-projects {
-    padding: var(--spacing-xl) 0;
-    background-color: white;
-}
+    /* Endrer menyens layout til vertikal stabling
+       - Skjuler menyen som standard (vises ved klikk)
+       - Full bredde for bedre mobiltilpasning
+       - Sentrert tekst
+       - Mindre mellomrom mellom elementene */
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        text-align: center;
+        gap: var(--spacing-sm);
+    }
 
-/* Grid-layout for prosjektkort */
-.project-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Responsive grid */
-    gap: var(--spacing-lg);
-}
-
-/* Styling av hvert prosjektkort */
-.project-card {
-    background: white;
-    border-radius: var(--border-radius);
-    overflow: hidden;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease;
-}
-
-/* Hover-effekt på prosjektkort */
-.project-card:hover {
-    transform: translateY(-5px); /* Løfter kortet litt opp */
-}
-
-/* Container for prosjektbilde */
-.project-image {
-    width: 100%;
-    height: 200px;
-    overflow: hidden;
-}
-
-/* Styling av prosjektbilder */
-.project-image img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover; /* Sikrer at bildet fyller containeren uten å strekkes */
-}
-
-/* Tekstinnhold i prosjektkort */
-.project-content {
-    padding: var(--spacing-md);
-}
-
-/* Prosjekttittel */
-.project-content h3 {
-    color: var(--primary-color);
-    margin-bottom: var(--spacing-sm);
-    font-size: 1.25rem;
-    font-weight: 600;
-}
-
-/* Prosjektbeskrivelse */
-.project-content p {
-    color: var(--text-color);
-    margin-bottom: var(--spacing-md);
-    line-height: 1.5;
-}
-
-/* Les mer-lenke i prosjektkort */
-.project-link {
-    color: var(--accent-color);
-    text-decoration: none;
-    font-weight: 500;
-    display: inline-block;
-    margin-top: var(--spacing-sm);
-}
-
-.project-link:hover {
-    text-decoration: underline;
-}
-
-/*
-===============================
-BLOGG-GRID
-===============================
-*/
-/* Bloggseksjon */
-.latest-posts {
-    padding: var(--spacing-xl) 0;
-    background-color: var(--light-gray);
-}
-
-/* Grid for bloggkort */
-.post-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: var(--spacing-lg);
-}
-
-/* Styling av bloggkort */
-.post-card {
-    background: white;
-    padding: var(--spacing-md);
-    border-radius: var(--border-radius);
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-/* Innholdscontainer i bloggkort */
-.post-content {
-    display: flex;
-    flex-direction: column;
-    gap: var(--spacing-sm);
-}
-
-/* Datostempel på blogginnlegg */
-.post-date {
-    color: var(--secondary-color);
-    font-size: 0.9rem;
-    font-weight: 500;
-}
-
-/* Bloggtittel */
-.post-card h3 {
-    margin: var(--spacing-sm) 0;
-    color: var(--primary-color);
-    font-size: 1.25rem;
-    font-weight: 600;
-}
-
-/* Bloggutdrag */
-.post-card p {
-    color: var(--text-color);
-    line-height: 1.5;
-    margin-bottom: var(--spacing-md);
-}
-
-/* Les mer-lenke i bloggkort */
-.post-link {
-    color: var(--accent-color);
-    text-decoration: none;
-    font-weight: 500;
-}
-
-.post-link:hover {
-    text-decoration: underline;
-}
-
-/*
-===============================
-INTERESSER
-===============================
-*/
-/* Interesseseksjon */
-.interests {
-    padding: var(--spacing-xl) 0;
-    background-color: white;
-}
-
-/* Grid for interessekort */
-.interests-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: var(--spacing-lg);
-}
-
-/* Styling av interessekort */
-.interest-card {
-    padding: var(--spacing-md);
-    background: white;
-    border-radius: var(--border-radius);
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-/* Innholdscontainer i interessekort */
-.interest-content {
-    display: flex;
-    flex-direction: column;
-    gap: var(--spacing-sm);
-}
-
-/* Interessetittel */
-.interest-card h3 {
-    color: var(--primary-color);
-    margin-bottom: var(--spacing-sm);
-    font-size: 1.25rem;
-    font-weight: 600;
-}
-
-/* Interessebeskrivelse */
-.interest-card p {
-    color: var(--text-color);
-    line-height: 1.5;
-    margin-bottom: var(--spacing-md);
-}
-
-/* Les mer-lenke i interessekort */
-.interest-link {
-    color: var(--accent-color);
-    text-decoration: none;
-    font-weight: 500;
-}
-
-.interest-link:hover {
-    text-decoration: underline;
+    /* Viser menyen når den er aktiv (trigget av JavaScript) */
+    .nav-links.active {
+        display: flex;
+    }
 }
 
 /*
 ===============================
 FOOTER
 ===============================
+Footer-seksjonen er sidens bunnområde som inneholder viktig navigasjon,
+kontaktinformasjon og juridisk informasjon. Den er designet for å være
+lett å navigere og gi en tydelig avslutning på siden.
 */
-/* Hovedfooter */
-footer {
+
+/* Hovedcontainer for footer
+   Denne er stylet for å:
+   - Skille seg ut med mørkere bakgrunnsfarge (primærfarge)
+   - Ha hvit tekst for god kontrast mot bakgrunnen
+   - Ha asymmetrisk padding (mer på topp enn bunn) for visuell balanse
+   
+   Footer bruker tag-selector i stedet for klasse fordi det
+   typisk bare er én footer på siden */
+   footer {
     background-color: var(--primary-color);
     color: white;
     padding: var(--spacing-xl) 0 var(--spacing-md);
 }
 
-/* Grid-layout for footer-innhold */
+/* Grid-container for hoved-footer-innhold
+   Bruker CSS Grid for å:
+   - Skape et fleksibelt, responsivt layout
+   - Dele innholdet i jevne kolonner (minimum 200px brede)
+   - Gi god avstand mellom seksjoner med gap
+   
+   repeat(auto-fit, minmax(200px, 1fr)) betyr:
+   - Lag så mange kolonner som passer
+   - Hver kolonne skal være minst 200px
+   - Fordel resterende plass likt */
 .footer-content {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -378,7 +297,11 @@ footer {
     margin-bottom: var(--spacing-xl);
 }
 
-/* Venstre del av footer med logo og beskrivelse */
+/* Venstre footer-seksjon med logo/sidenavn og beskrivelse
+   Denne seksjonen er ofte mer fremtredende og inneholder:
+   - Større overskrift (1.5rem = 24px)
+   - Fet skrift for logo/navn
+   - Lett gjennomsiktig tekst (opacity 0.8) for beskrivelse */
 .footer-left h3 {
     font-size: 1.5rem;
     margin-bottom: var(--spacing-sm);
@@ -386,10 +309,14 @@ footer {
 }
 
 .footer-left p {
-    opacity: 0.8;
+    opacity: 0.8; /* Gjør teksten litt mindre fremtredende */
 }
 
-/* Overskrifter i footer-seksjoner */
+/* Overskrifter for navigasjon og sosiale medier
+   Disse er stylet for å:
+   - Være mindre enn hovedlogoen (1.1rem = 17.6px)
+   - Ha god avstand til innholdet under
+   - Være tydelige men ikke dominerende */
 .footer-nav h4,
 .footer-social h4 {
     font-size: 1.1rem;
@@ -397,20 +324,33 @@ footer {
     font-weight: 600;
 }
 
-/* Footer-lister */
+/* Basis-styling for footer-lister
+   Fjerner standard liste-styling for å:
+   - Gi et renere utseende
+   - Tillate custom styling av liste-elementer
+   - Fjerne standard padding/margin */
 .footer-nav ul,
 .footer-social ul {
     list-style: none;
     padding: 0;
 }
 
-/* Footer-listeelementer */
+/* Styling av individuelle liste-elementer
+   Gir konsistent avstand mellom lenker for:
+   - God lesbarhet
+   - Tydelig skille mellom elementer
+   - Enkel navigasjon */
 .footer-nav li,
 .footer-social li {
     margin-bottom: var(--spacing-sm);
 }
 
-/* Footer-lenker */
+/* Styling av footer-lenker
+   Lenker er designet for å:
+   - Ha god kontrast (hvit mot mørk bakgrunn)
+   - Være subtile (opacity 0.8)
+   - Ha myk hover-effekt
+   - Være tydelig klikkbare */
 .footer-nav a,
 .footer-social a {
     color: white;
@@ -419,81 +359,33 @@ footer {
     transition: opacity 0.3s ease;
 }
 
+/* Hover-effekt for footer-lenker
+   Ved hover:
+   - Øker opacity til 1 for mer synlighet
+   - Gir subtil men tydelig feedback
+   - Beholder god lesbarhet */
 .footer-nav a:hover,
 .footer-social a:hover {
     opacity: 1;
 }
 
-/* Copyright-seksjon i footer */
+/* Copyright-seksjon nederst i footer
+   Denne seksjonen:
+   - Er sentrert for visuell balanse
+   - Har en subtil topplinje som skiller den fra innholdet over
+   - Bruker padding for å skape avstand fra skillelinjen */
 .footer-bottom {
     text-align: center;
     padding-top: var(--spacing-md);
     border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
 
+/* Styling av copyright-tekst
+   Teksten er:
+   - Litt transparent for å være mindre fremtredende
+   - Mindre skriftstørrelse enn resten av footer
+   - Beholder god lesbarhet */
 .footer-bottom p {
     opacity: 0.8;
     font-size: 0.9rem;
-}
-
-/*
-===============================
-RESPONSIVE DESIGN
-===============================
-*/
-/* Mobilvisning - aktiveres når skjermbredden er mindre enn 768px */
-@media (max-width: 768px) {
-    /* Endrer navigasjon til vertikal stabling */
-    .nav-content {
-        flex-direction: column;
-        gap: var(--spacing-md);
-    }
-
-    /* Endrer meny til vertikal liste */
-    .nav-links {
-        flex-direction: column;
-        text-align: center;
-        width: 100%;
-    }
-
-    /* Justerer logo-margin for mobil */
-    .nav-brand {
-        margin-right: 0;
-        margin-bottom: var(--spacing-sm);
-    }
-
-    /* Øker margin-top for hero på mobil pga høyere nav */
-    .hero {
-        margin-top: 120px;
-    }
-
-    /* Reduserer tekststørrelser for mobil */
-    .hero h1 {
-        font-size: 2.5rem;
-    }
-
-    .hero-subtitle {
-        font-size: 1.2rem;
-    }
-
-    /* Stacker hero-knapper vertikalt */
-    .hero-buttons {
-        flex-direction: column;
-        gap: var(--spacing-md);
-    }
-
-    /* Endrer footer til én kolonne */
-    .footer-content {
-        grid-template-columns: 1fr;
-        text-align: center;
-        gap: var(--spacing-lg);
-    }
-
-    /* Sentrerer footer-lister */
-    .footer-nav ul,
-    .footer-social ul {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    }
 }

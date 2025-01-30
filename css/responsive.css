@@ -1,0 +1,105 @@
+/*
+===============================
+RESPONSIVE DESIGN
+===============================
+Denne seksjonen håndterer tilpasning av layouten for mobile enheter.
+Den inneholder media queries som aktiveres når skjermbredden blir
+mindre enn 768px (standard brytningspunkt for tablets/mobiler).
+
+Hovedmålene med disse tilpasningene er:
+1. Forbedre lesbarhet på mindre skjermer
+2. Forenkle navigasjon for touch-enheter
+3. Optimalisere innholdsvisning for vertikal scrolling
+*/
+
+/* Media Query for mobile enheter
+   Aktiveres når skjermbredden er 768px eller mindre
+   768px er et standard brytningspunkt som dekker:
+   - De fleste tablets i portrettmodus
+   - Alle mobiltelefoner
+   - Mindre nettbrett */
+   @media (max-width: 768px) {
+    /* Tilpasning av hovednavigasjon for mobil
+       Endrer fra horisontal til vertikal layout ved å:
+       - Stable elementene vertikalt med column-direction
+       - Legge til mellomrom mellom elementene med gap
+       Dette gir bedre touch-målområder for mobile brukere */
+    .nav-content {
+        flex-direction: column;
+        gap: var(--spacing-md);
+    }
+
+    /* Omstrukturering av navigasjonslenker
+       Endrer menyens layout for å:
+       - Vise lenker vertikalt for enklere navigasjon
+       - Sentrere teksten for bedre visuell balanse
+       - Utnytte full bredde for større touch-målområder */
+    .nav-links {
+        flex-direction: column;
+        text-align: center;
+        width: 100%;
+    }
+
+    /* Justering av logo/merkevare-området
+       Fjerner høyre-margin og legger til bunnmargin for:
+       - Bedre tilpasning til vertikal layout
+       - Riktig spacing i mobil-kontekst */
+    .nav-brand {
+        margin-right: 0;
+        margin-bottom: var(--spacing-sm);
+    }
+
+    /* Justering av hero-seksjonens posisjonering
+       Øker toppmargin for å:
+       - Kompensere for høyere navigasjonshøyde i mobil-visning
+       - Unngå at innhold havner under navigasjonen */
+    .hero {
+        margin-top: 120px;
+    }
+
+    /* Tilpasning av tekststørrelser i hero-seksjonen
+       Reduserer størrelsen for:
+       - Bedre lesbarhet på mindre skjermer
+       - Mer balansert visuelt hierarki
+       - Unngå at teksten tar for mye plass */
+    .hero h1 {
+        font-size: 2.5rem; /* Redusert fra 3.5rem */
+    }
+
+    .hero-subtitle {
+        font-size: 1.2rem; /* Redusert fra 1.5rem */
+    }
+
+    /* Omorganisering av hero-knapper
+       Endrer fra horisontal til vertikal stabling for:
+       - Bedre utnyttelse av tilgjengelig bredde
+       - Tydeligere handlingsalternativer
+       - Større touch-målområder */
+    .hero-buttons {
+        flex-direction: column;
+        gap: var(--spacing-md);
+    }
+
+    /* Tilpasning av footer-layout
+       Endrer grid til enkeltkolonne for:
+       - Mer oversiktlig presentasjon på små skjermer
+       - Bedre lesbarhet og navigasjon
+       - Konsistent sentrert layout */
+    .footer-content {
+        grid-template-columns: 1fr; /* Endrer til én kolonne */
+        text-align: center;
+        gap: var(--spacing-lg);
+    }
+
+    /* Sentrering av footer-navigasjon
+       Justerer lister i footer for:
+       - Visuell konsistens med resten av mobildesignet
+       - Enklere navigasjon med touch
+       - Bedre visuell balanse i vertikal layout */
+    .footer-nav ul
+    .footer-social ul {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+}

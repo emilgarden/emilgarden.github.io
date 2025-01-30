@@ -3,20 +3,31 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Emil Garden - Portfolio & Blog</title>
+    <title>Ole Emil Øygarden - Portfolio & Blog</title>
     <link rel="stylesheet" href="css/variables.css">
     <link rel="stylesheet" href="css/normalize.css">
     <link rel="stylesheet" href="css/main.css">
+    <!-- 4. Seksjonsspesifikke stiler -->
+    <link rel="stylesheet" href="css/blog.css">
+    <link rel="stylesheet" href="css/projects.css">
+    <link rel="stylesheet" href="css/interests.css">
+    <link rel="stylesheet" href="css/hero.css">
+        
+    <!-- 5. Responsive stiler til slutt -->
+    <link rel="stylesheet" href="css/responsive.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap">
 </head>
+<script src="js/main.js"></script>
 <body>
-    <!-- Hovednavigasjon -->
     <nav class="main-nav">
         <div class="container">
             <div class="nav-content">
                 <div class="nav-brand">
-                    <a href="index.html">EG</a>
+                    <a href="index.html">OEØ</a>
                 </div>
+                <button class="nav-toggle" aria-label="Toggle navigation">
+                    <i class="fas fa-bars"></i>
+                </button>
                 <ul class="nav-links">
                     <li><a href="index.html" class="active">Hjem</a></li>
                     <li><a href="prosjekter/index.html">Prosjekter</a></li>
@@ -32,7 +43,7 @@
     <header class="hero">
         <div class="container">
             <div class="hero-content">
-                <h1>Emil Garden</h1>
+                <h1>Ole Emil Øygarden</h1>
                 <p class="hero-subtitle">Utforsker teknologi, språk og kreative prosjekter</p>
                 <div class="hero-buttons">
                     <a href="prosjekter/index.html" class="btn btn-primary">Se mine prosjekter</a>
@@ -51,7 +62,7 @@
                     <!-- Prosjektkort vil legges til her -->
                     <article class="project-card">
                         <div class="project-image">
-                            <img src="assets/images/placeholder.jpg" alt="Prosjekt 1">
+                            <img src="assets/images/placeholder.jpg" alt="Beskrivelse av Prosjekt 1">
                         </div>
                         <div class="project-content">
                             <h3>Prosjekt 1</h3>
@@ -104,8 +115,8 @@
         <div class="container">
             <div class="footer-content">
                 <div class="footer-left">
-                    <h3>Emil Garden</h3>
-                    <p>Utforsker og skaper</p>
+                    <h3>Ole Emil Øygarden</h3>
+                    <p>Utforsker og utvikler</p>
                 </div>
                 <div class="footer-nav">
                     <h4>Navigasjon</h4>
@@ -126,7 +137,7 @@
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2025 Emil Garden. Alle rettigheter forbeholdt.</p>
+                <p>&copy; 2025 Ole Emil Øygarden. Alle rettigheter forbeholdt.</p>
             </div>
         </div>
     </footer>

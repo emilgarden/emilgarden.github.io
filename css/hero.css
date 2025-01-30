@@ -1,0 +1,71 @@
+/*
+===============================
+HERO-SEKSJON
+===============================
+Hero-seksjonen er det første besøkende ser når de kommer til siden.
+Denne seksjonen er designet for å gi et sterkt førsteinntrykk og
+kommunisere sidens hovedbudskap effektivt.
+*/
+
+/* Hovedcontainer for hero-seksjonen
+   Denne seksjonen har følgende nøkkelegenskaper:
+   - Stor vertikal padding (calc(var(--spacing-xl) * 2)) gir god høyde og luftighet
+   - Lys grå bakgrunnsfarge skiller seksjonen fra resten av siden
+   - Margin-top på 60px kompenserer for den faste navigasjonsbaren,
+     slik at innholdet ikke gjemmes under den */
+     .hero {
+        padding: calc(var(--spacing-xl) * 2) 0;
+        background-color: var(--light-gray);
+        margin-top: 60px; /* Dette tilsvarer høyden på navigasjonsbaren */
+    }
+    
+    /* Container for hero-seksjonens innhold
+       Denne bruker følgende teknikker for optimal presentasjon:
+       - Sentrert tekst for balansert layout
+       - Begrenset maksbredde (800px) for å:
+         1. Hindre for lange tekstlinjer som er vanskelige å lese
+         2. Holde innholdet fokusert og lettlest
+       - Auto-margin horisontalt sentrerer innholdet i containeren */
+    .hero-content {
+        text-align: center;
+        max-width: 800px;
+        margin: 0 auto;
+    }
+    
+    /* Hovedoverskrift (H1) i hero-seksjonen
+       Dette er sidens viktigste overskrift og er stylet for å:
+       - Være stor og tydelig (3.5rem = typisk 56px)
+       - Bruke primærfargen for visuell hierarki
+       - Ha fet skrift (700) for bedre synlighet og betydning
+       - Ha passende mellomrom til underteksten */
+    .hero h1 {
+        font-size: 3.5rem;
+        color: var(--primary-color);
+        margin-bottom: var(--spacing-md);
+        font-weight: 700;
+    }
+    
+    /* Undertekst (subtitle) i hero-seksjonen
+       Denne teksten støtter hovedoverskriften ved å:
+       - Være mindre, men fortsatt godt lesbar (1.5rem = typisk 24px)
+       - Bruke sekundærfargen for visuell variasjon
+       - Ha økt linjehøyde (1.4) for bedre lesbarhet ved lengre tekst
+       - Ha god avstand til knappene under */
+    .hero-subtitle {
+        font-size: 1.5rem;
+        color: var(--secondary-color);
+        margin-bottom: var(--spacing-lg);
+        line-height: 1.4;
+    }
+    
+    /* Container for handlingsknapper (call-to-action)
+       Bruker flexbox-layout for å:
+       - Plassere knapper horisontalt ved siden av hverandre
+       - Legge til jevnt mellomrom mellom knappene (gap)
+       - Sentrere knappene horisontalt i forhold til teksten over
+       Dette gir en ryddig og balansert presentasjon av handlingsalternativene */
+    .hero-buttons {
+        display: flex;
+        gap: var(--spacing-md);
+        justify-content: center;
+    }

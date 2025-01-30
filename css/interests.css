@@ -1,0 +1,113 @@
+/*
+===============================
+INTERESSER
+===============================
+Denne seksjonen presenterer brukerens interesseområder i et responsivt grid-layout.
+Seksjonen er designet for å vise frem ulike interesser eller kompetanseområder
+på en oversiktlig og engasjerende måte.
+*/
+
+/* Hovedcontainer for interesseseksjonen
+   Denne seksjonen er strukturert for å:
+   - Skape god vertikal avstand fra andre seksjoner med padding
+   - Bruke hvit bakgrunn for et rent og profesjonelt utseende
+   - Gi et klart skille fra andre seksjoner på siden */
+   .interests {
+    padding: var(--spacing-xl) 0;
+    background-color: white;
+}
+
+/* Grid-container for interessekort
+   Implementerer et responsivt grid-system hvor:
+   - repeat(auto-fit, minmax(250px, 1fr)) betyr:
+     * auto-fit: Systemet legger automatisk til så mange kolonner som passer
+     * minmax(250px, 1fr): Hver kolonne er minimum 250px bred
+     * 1fr: Tilgjengelig plass fordeles likt mellom kolonnene
+   - gap skaper jevn avstand mellom alle kort
+   
+   Merk: Bruker 250px som minimumsbredde (vs 300px i andre grids)
+   for å tillate flere kolonner på mellomstore skjermer */
+.interests-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: var(--spacing-lg);
+}
+
+/* Styling for individuelle interessekort
+   Hvert kort er designet med:
+   - Konsistent padding for god spacing rundt innholdet
+   - Hvit bakgrunn som basis
+   - Avrundede hjørner for et moderne utseende
+   - Subtil skygge for å gi dybde og skille kortet fra bakgrunnen
+   
+   Dette skaper et "kort-utseende" som er lett å skille fra bakgrunnen,
+   selv når bakgrunnen også er hvit */
+.interest-card {
+    padding: var(--spacing-md);
+    background: white;
+    border-radius: var(--border-radius);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Container for innholdet i hvert interessekort
+   Bruker flexbox for å:
+   - Organisere innhold vertikalt med column-direction
+   - Skape konsistent mellomrom mellom elementer med gap
+   - Gi en naturlig flyt av innhold fra topp til bunn
+   
+   Dette sikrer konsistent spacing og layout innad i hvert kort */
+.interest-content {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-sm);
+}
+
+/* Styling av interessetittel
+   Tittelen er designet for å:
+   - Være tydelig med primærfarge
+   - Ha passende størrelse (1.25rem = 20px)
+   - Være semi-bold for god lesbarhet og hierarki
+   - Ha margin under for å skille fra beskrivelsen
+   
+   Dette gjør tittelen til et tydelig fokuspunkt i kortet */
+.interest-card h3 {
+    color: var(--primary-color);
+    margin-bottom: var(--spacing-sm);
+    font-size: 1.25rem;
+    font-weight: 600;
+}
+
+/* Styling av interessebeskrivelse
+   Beskrivelsen er optimalisert for lesbarhet med:
+   - Standard tekstfarge for behagelig lesing
+   - Økt linjehøyde (1.5) for bedre lesbarhet
+   - Margin under for å skille fra eventuelle lenker
+   
+   Dette gir god leseflyt og tydelig struktur i kortet */
+.interest-card p {
+    color: var(--text-color);
+    line-height: 1.5;
+    margin-bottom: var(--spacing-md);
+}
+
+/* Styling av "Les mer"-lenke
+   Lenken er designet for å:
+   - Skille seg ut med aksent-farge
+   - Være tydelig klikkbar uten å være påtrengende
+   - Ha medium font-weight for god synlighet
+   
+   Dette skaper en subtil men tydelig call-to-action */
+.interest-link {
+    color: var(--accent-color);
+    text-decoration: none;
+    font-weight: 500;
+}
+
+/* Hover-effekt for "Les mer"-lenke
+   Ved hover:
+   - Legges det til understreking
+   - Dette gir umiddelbar visuell feedback
+   - Indikerer tydelig at elementet er klikkbart */
+.interest-link:hover {
+    text-decoration: underline;
+}
