@@ -1,0 +1,121 @@
+/* footer.css */
+
+.site-footer {
+    background-color: var(--primary-color);
+    color: white;
+    padding: var(--spacing-xl) 0 var(--spacing-md);
+    margin-top: var(--spacing-xl);
+}
+
+/* Hovedgrid for footer-innhold */
+.footer-content {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: var(--spacing-xl);
+    margin-bottom: var(--spacing-xl);
+}
+
+/* Venstre seksjon med logo og beskrivelse */
+.footer-brand h3 {
+    font-size: 1.5rem;
+    margin-bottom: var(--spacing-sm);
+    font-weight: 700;
+}
+
+.footer-brand p {
+    opacity: 0.8;
+    line-height: 1.6;
+    max-width: 300px;
+}
+
+/* Navigasjon og sosiale medier seksjoner */
+.footer-nav h4,
+.footer-social h4 {
+    font-size: 1.1rem;
+    margin-bottom: var(--spacing-md);
+    font-weight: 600;
+    color: white;
+}
+
+.footer-nav ul,
+.footer-social ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-nav li,
+.footer-social li {
+    margin-bottom: var(--spacing-sm);
+}
+
+.footer-nav a,
+.footer-social a {
+    color: white;
+    text-decoration: none;
+    opacity: 0.8;
+    transition: all 0.3s ease;
+    display: inline-block;
+    padding: 0.2rem 0;
+}
+
+.footer-nav a:hover,
+.footer-social a:hover {
+    opacity: 1;
+    transform: translateX(5px);
+}
+
+/* Copyright-seksjon */
+.footer-bottom {
+    text-align: center;
+    padding-top: var(--spacing-md);
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.footer-bottom p {
+    opacity: 0.8;
+    font-size: 0.9rem;
+}
+
+/* Sosiale medier ikoner */
+.footer-social a {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+}
+
+.footer-social .social-icon {
+    width: 20px;
+    height: 20px;
+    opacity: 0.8;
+    transition: opacity 0.3s ease;
+}
+
+.footer-social a:hover .social-icon {
+    opacity: 1;
+}
+
+/* Responsiv design */
+@media (max-width: 768px) {
+    .footer-content {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-lg);
+        text-align: center;
+    }
+
+    .footer-brand p {
+        max-width: 100%;
+    }
+
+    .footer-nav a:hover,
+    .footer-social a:hover {
+        transform: translateX(0);
+    }
+
+    .footer-nav ul,
+    .footer-social ul {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+}

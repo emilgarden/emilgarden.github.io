@@ -1,71 +1,145 @@
-/*
-===============================
-HERO-SEKSJON
-===============================
-Hero-seksjonen er det første besøkende ser når de kommer til siden.
-Denne seksjonen er designet for å gi et sterkt førsteinntrykk og
-kommunisere sidens hovedbudskap effektivt.
-*/
+/* hero.css */
 
-/* Hovedcontainer for hero-seksjonen
-   Denne seksjonen har følgende nøkkelegenskaper:
-   - Stor vertikal padding (calc(var(--spacing-xl) * 2)) gir god høyde og luftighet
-   - Lys grå bakgrunnsfarge skiller seksjonen fra resten av siden
-   - Margin-top på 60px kompenserer for den faste navigasjonsbaren,
-     slik at innholdet ikke gjemmes under den */
-     .hero {
-        padding: calc(var(--spacing-xl) * 2) 0;
-        background-color: var(--light-gray);
-        margin-top: 60px; /* Dette tilsvarer høyden på navigasjonsbaren */
-    }
-    
-    /* Container for hero-seksjonens innhold
-       Denne bruker følgende teknikker for optimal presentasjon:
-       - Sentrert tekst for balansert layout
-       - Begrenset maksbredde (800px) for å:
-         1. Hindre for lange tekstlinjer som er vanskelige å lese
-         2. Holde innholdet fokusert og lettlest
-       - Auto-margin horisontalt sentrerer innholdet i containeren */
-    .hero-content {
-        text-align: center;
-        max-width: 800px;
-        margin: 0 auto;
-    }
-    
-    /* Hovedoverskrift (H1) i hero-seksjonen
-       Dette er sidens viktigste overskrift og er stylet for å:
-       - Være stor og tydelig (3.5rem = typisk 56px)
-       - Bruke primærfargen for visuell hierarki
-       - Ha fet skrift (700) for bedre synlighet og betydning
-       - Ha passende mellomrom til underteksten */
-    .hero h1 {
-        font-size: 3.5rem;
-        color: var(--primary-color);
-        margin-bottom: var(--spacing-md);
-        font-weight: 700;
-    }
-    
-    /* Undertekst (subtitle) i hero-seksjonen
-       Denne teksten støtter hovedoverskriften ved å:
-       - Være mindre, men fortsatt godt lesbar (1.5rem = typisk 24px)
-       - Bruke sekundærfargen for visuell variasjon
-       - Ha økt linjehøyde (1.4) for bedre lesbarhet ved lengre tekst
-       - Ha god avstand til knappene under */
-    .hero-subtitle {
-        font-size: 1.5rem;
-        color: var(--secondary-color);
-        margin-bottom: var(--spacing-lg);
-        line-height: 1.4;
-    }
-    
-    /* Container for handlingsknapper (call-to-action)
-       Bruker flexbox-layout for å:
-       - Plassere knapper horisontalt ved siden av hverandre
-       - Legge til jevnt mellomrom mellom knappene (gap)
-       - Sentrere knappene horisontalt i forhold til teksten over
-       Dette gir en ryddig og balansert presentasjon av handlingsalternativene */
-    .hero-buttons {
-        display: flex;
-        gap: var(--spacing-md);
-        justify-content: center;
-    }
+.hero {
+   padding: calc(var(--spacing-xl) * 2) 0;
+   background: linear-gradient(to bottom right, var(--light-gray), white);
+   margin-top: 60px;
+   position: relative;
+   overflow: hidden;
+}
+
+/* Subtle background pattern */
+.hero::before {
+   content: '';
+   position: absolute;
+   top: 0;
+   left: 0;
+   right: 0;
+   bottom: 0;
+   background-image: radial-gradient(var(--primary-color) 1px, transparent 1px);
+   background-size: 50px 50px;
+   opacity: 0.03;
+}
+
+.hero-content {
+   text-align: center;
+   max-width: 800px;
+   margin: 0 auto;
+   position: relative;
+   animation: fadeIn 0.8s ease-out;
+}
+
+.hero h1 {
+   font-size: 3.5rem;
+   color: var(--primary-color);
+   margin-bottom: var(--spacing-md);
+   font-weight: 700;
+   position: relative;
+   transform: translateY(20px);
+   opacity: 0;
+   animation: slideUp 0.6s ease-out forwards;
+}
+
+.hero-subtitle {
+   font-size: 1.5rem;
+   color: var(--secondary-color);
+   margin-bottom: var(--spacing-lg);
+   line-height: 1.4;
+   transform: translateY(20px);
+   opacity: 0;
+   animation: slideUp 0.6s ease-out 0.2s forwards;
+}
+
+.hero-buttons {
+   display: flex;
+   gap: var(--spacing-md);
+   justify-content: center;
+   transform: translateY(20px);
+   opacity: 0;
+   animation: slideUp 0.6s ease-out 0.4s forwards;
+}
+
+/* Forbedret knappestil */
+.hero-buttons .btn {
+   min-width: 160px;
+   text-align: center;
+   position: relative;
+   overflow: hidden;
+   transition: all 0.3s ease;
+}
+
+.hero-buttons .btn::before {
+   content: '';
+   position: absolute;
+   top: 50%;
+   left: 50%;
+   width: 0;
+   height: 0;
+   background: rgba(255, 255, 255, 0.1);
+   border-radius: 50%;
+   transform: translate(-50%, -50%);
+   transition: width 0.6s ease, height 0.6s ease;
+}
+
+.hero-buttons .btn:hover::before {
+   width: 300px;
+   height: 300px;
+}
+
+/* Animasjoner */
+@keyframes fadeIn {
+   from {
+       opacity: 0;
+   }
+   to {
+       opacity: 1;
+   }
+}
+
+@keyframes slideUp {
+   from {
+       transform: translateY(20px);
+       opacity: 0;
+   }
+   to {
+       transform: translateY(0);
+       opacity: 1;
+   }
+}
+
+/* Responsiv design */
+@media (max-width: 768px) {
+   .hero {
+       padding: calc(var(--spacing-xl) * 1.5) 0;
+   }
+
+   .hero h1 {
+       font-size: 2.5rem;
+   }
+
+   .hero-subtitle {
+       font-size: 1.2rem;
+   }
+
+   .hero-buttons {
+       flex-direction: column;
+       align-items: center;
+   }
+
+   .hero-buttons .btn {
+       width: 100%;
+       max-width: 300px;
+   }
+}
+
+/* Redusert bevegelse for tilgjengelighet */
+@media (prefers-reduced-motion: reduce) {
+   .hero-content,
+   .hero h1,
+   .hero-subtitle,
+   .hero-buttons {
+       animation: none;
+       transform: none;
+       opacity: 1;
+   }
+}
