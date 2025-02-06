@@ -1,36 +1,29 @@
 <!DOCTYPE html>
 <html lang="no">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ole Emil Øygarden - Portfolio & Blog</title>
-    
-    <!-- Base stiler -->
-    <link rel="stylesheet" href="css/variables.css">
-    <link rel="stylesheet" href="css/normalize.css">
-    <link rel="stylesheet" href="css/main.css">
-    
-    <!-- Navigasjon og footer stil -->
-    <link rel="stylesheet" href="css/navigation.css">
-    <link rel="stylesheet" href="css/footer.css">
-
-    <!-- Kortspesifikke stiler -->
-    <link rel="stylesheet" href="css/project-card.css">
-    <link rel="stylesheet" href="css/blog-card.css">
-    <link rel="stylesheet" href="css/interest-card.css">
-    
-    <!-- Seksjonsspesifikke stiler -->
-    <link rel="stylesheet" href="css/blog.css">
-    <link rel="stylesheet" href="css/projects.css">
-    <link rel="stylesheet" href="css/interests.css">
-    <link rel="stylesheet" href="css/hero.css">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Ole Emil Øygarden - Portfolio & Blog</title>
         
-    <!-- Responsive stiler til slutt -->
-    <link rel="stylesheet" href="css/responsive.css">
-    
-    <!-- Google Fonts -->
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap">
-</head>
+        <!-- Base stiler -->
+        <link rel="stylesheet" href="css/base/variables.css">
+        <link rel="stylesheet" href="css/base/normalize.css">
+        <link rel="stylesheet" href="css/base/main.css">
+        
+        <!-- Komponent stiler -->
+        <link rel="stylesheet" href="css/components/navigation.css">
+        <link rel="stylesheet" href="css/components/footer.css">
+        <link rel="stylesheet" href="css/components/project-card.css">
+        <link rel="stylesheet" href="css/components/blog-card.css">
+        <link rel="stylesheet" href="css/components/interest-card.css">
+        
+        <!-- Layout stiler -->
+        <link rel="stylesheet" href="css/layouts/hero.css">
+        <link rel="stylesheet" href="css/layouts/responsive.css">
+        
+        <!-- Google Fonts -->
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap">
+    </head>
 <body>
     <!-- Navigasjon -->
     <nav class="main-nav">
@@ -40,19 +33,14 @@
                 <div class="nav-brand">
                     <a href="index.html">OEØ</a>
                 </div>
-
-                <!-- Hamburger-knapp -->
-                <button class="nav-toggle" aria-label="Åpne meny">
-                    &#9776;
-                </button>
-
+    
                 <!-- Meny -->
                 <ul class="nav-links">
                     <li><a href="index.html">Hjem</a></li>
-                    <li><a href="prosjekter/index.html">Prosjekter</a></li>
-                    <li><a href="blogg/index.html">Blogg</a></li>
-                    <li><a href="interesser/index.html">Interesser</a></li>
-                    <li><a href="om/index.html">Om Meg</a></li>
+                    <li><a href="pages/projects/index.html">Prosjekter</a></li>
+                    <li><a href="pages/blog/index.html">Blogg</a></li>
+                    <li><a href="pages/interests/index.html">Interesser</a></li>
+                    <li><a href="pages/about/index.html">Om Meg</a></li>
                 </ul>
             </div>
         </div>
