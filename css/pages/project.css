@@ -1,129 +1,241 @@
-/*
-===============================
-PROSJEKT-GRID
-===============================
-Denne seksjonen definerer layouten for prosjektvisning i et responsivt rutenett.
-Den bruker CSS Grid for å skape et fleksibelt og adaptivt layout som automatisk
-tilpasser seg ulike skjermstørrelser.
-*/
+/* projects.css */
 
-/* Hovedcontainer for prosjektseksjonen
-   Denne seksjonen:
-   - Har stor vertikal padding for å skille den fra andre seksjoner
-   - Bruker hvit bakgrunn for å skape kontrast mot eventuelle mørkere seksjoner
-   - Fungerer som en wrapper for prosjektgriddet */
-   .featured-projects {
-    padding: var(--spacing-xl) 0;
-    background-color: white;
+/* Hero Section */
+.projects-hero {
+    position: relative;
+    background-color: var(--primary-color);
+    color: white;
+    margin-top: 60px; /* Samme som nav-høyde */
 }
 
-/* Grid-container for prosjektkort
-   Bruker CSS Grid med avanserte funksjoner:
-   - repeat(auto-fit, minmax(300px, 1fr)) betyr:
-     * auto-fit: Legger til så mange kolonner som mulig
-     * minmax(300px, 1fr): Hver kolonne er minimum 300px bred og deler tilgjengelig plass likt
-   - gap legger til mellomrom mellom kortene
-   Dette skaper et responsivt layout som automatisk justerer antall kolonner */
-.project-grid {
+.projects-hero .container {
+    padding-top: var(--spacing-xl);  /* Legg til padding på container i stedet for hero */
+    padding-bottom: var(--spacing-xl);
+}
+
+/* Vær veldig spesifikk med h1 styling */
+.projects-hero h1 {
+    font-size: 2.5rem;
+    margin: 0;  /* Fjern all standard margin */
+    padding: 100px; /* Fjern all standard padding */
+    margin-bottom: var(--spacing-md);
+    font-weight: 700;
+}
+
+.hero-description {
+    max-width: 800px;
+    line-height: 1.6;
+    opacity: 0.9;
+    margin: 0; /* Sikre at det ikke er uønsket margin */
+}
+
+/* Filter Section */
+.filter-section {
+    background-color: var(--light-gray);
+    padding: var(--spacing-lg) 0;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.filter-container {
+    text-align: center;
+}
+
+.filter-container h2 {
+    font-size: 1.25rem;
+    margin-bottom: var(--spacing-md);
+    color: var(--primary-color);
+    font-weight: 600;
+}
+
+.filter-options {
+    display: flex;
+    justify-content: center;
+    gap: var(--spacing-lg);
+    flex-wrap: wrap;
+}
+
+.filter-group {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--spacing-sm);
+}
+
+.filter-group label {
+    font-weight: 500;
+    color: var(--primary-color);
+    font-size: 0.9rem;
+}
+
+.custom-select {
+    padding: 0.75rem var(--spacing-lg);
+    border: 2px solid var(--border-color);
+    border-radius: var(--border-radius);
+    background-color: white;
+    min-width: 200px;
+    cursor: pointer;
+    font-size: 1rem;
+    color: var(--text-color);
+    transition: border-color 0.2s ease;
+}
+
+.custom-select:hover {
+    border-color: var(--secondary-color);
+}
+
+.custom-select:focus {
+    outline: none;
+    border-color: var(--accent-color);
+}
+
+/* Main Content Area */
+.projects-main {
+    background-color: #f5f5f5;
+    padding: var(--spacing-xl) 0;
+}
+
+/* Project Grid */
+.projects-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
     gap: var(--spacing-lg);
 }
 
-/* Styling for individuelle prosjektkort
-   Hvert kort er designet som et "card" med:
-   - Hvit bakgrunn for å skille det fra bakgrunnen
-   - Avrundede hjørner for mykere utseende
-   - overflow: hidden for å hindre at innhold stikker utenfor kortet
-   - Skygge for å gi dybde og "løfte" kortet fra bakgrunnen
-   - Myk overgangseffekt for hover-animasjonen */
+/* Project Cards */
 .project-card {
     background: white;
+    border: 1px solid var(--border-color);
     border-radius: var(--border-radius);
     overflow: hidden;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-/* Interaktiv hover-effekt for prosjektkort
-   Når brukeren holder musepekeren over et kort:
-   - Kortet løftes 5px opp (-5px i Y-retning)
-   - Overgangen er myk pga transition-egenskapen definert over
-   Dette gir en subtil men effektiv interaksjonseffekt */
 .project-card:hover {
-    transform: translateY(-5px);
+    transform: translateY(-3px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
 
-/* Bildecontainer i prosjektkort
-   Fast høyde og full bredde sikrer konsistent kortstørrelse
-   overflow: hidden klipper bilder som er større enn containeren */
-.project-image {
-    width: 100%;
-    height: 200px;
-    overflow: hidden;
-}
-
-/* Bildestying innenfor containeren
-   - width og height: 100% fyller hele containeren
-   - object-fit: cover sikrer at bildet:
-     * Fyller hele containeren
-     * Beholder aspekt-ratio
-     * Beskjærer overflødig innhold fra kantene
-   Dette gir konsistente og profesjonelle bildeutsnitt */
-.project-image img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-
-/* Container for tekstinnhold i prosjektkort
-   Legger til padding rundt teksten for å:
-   - Skape luft mellom tekst og kortets kanter
-   - Gi bedre lesbarhet
-   - Skille teksten visuelt fra bildet */
 .project-content {
     padding: var(--spacing-md);
 }
 
-/* Styling av prosjekttittel (h3)
-   - Bruker primærfarge for visuell hierarki
-   - Moderat skriftstørrelse (1.25rem = 20px)
-   - Semi-bold font-weight for god lesbarhet
-   - Margin under for å skille fra beskrivelsen */
-.project-content h3 {
-    color: var(--primary-color);
+/* Project Header */
+.project-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
     margin-bottom: var(--spacing-sm);
+}
+
+.project-header h3 {
     font-size: 1.25rem;
+    color: var(--primary-color);
+    margin: 0;
     font-weight: 600;
 }
 
-/* Styling av prosjektbeskrivelse
-   - Bruker standard tekstfarge
-   - Økt linjehøyde (1.5) for bedre lesbarhet
-   - Margin under for å skille fra "Les mer"-lenken */
-.project-content p {
-    color: var(--text-color);
-    margin-bottom: var(--spacing-md);
-    line-height: 1.5;
+/* Status Badges */
+.status-badge {
+    padding: 0.25rem 0.75rem;
+    border-radius: 1rem;
+    font-size: 0.875rem;
+    font-weight: 500;
 }
 
-/* Styling av "Les mer"-lenke
-   - Bruker aksent-farge for å fremheve at det er en lenke
-   - Fjerner standard understreking
-   - Legger til litt tykkere skrift for bedre synlighet
-   - display: inline-block gjør at margin fungerer korrekt
-   - Margin på toppen skaper avstand fra teksten over */
+.status-badge.active {
+    background-color: #e6f4ea;
+    color: #137333;
+}
+
+.status-badge.completed {
+    background-color: #e8eaed;
+    color: #3c4043;
+}
+
+/* Project Description */
+.project-content p {
+    color: var(--text-color);
+    line-height: 1.6;
+    margin: var(--spacing-md) 0;
+}
+
+/* Tech Tags */
+.project-tech {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin: var(--spacing-md) 0;
+}
+
+.tech-tag {
+    background-color: var(--light-gray);
+    color: var(--primary-color);
+    padding: 0.25rem 0.75rem;
+    border-radius: 1rem;
+    font-size: 0.875rem;
+}
+
+/* Project Link */
 .project-link {
+    display: inline-flex;
+    align-items: center;
     color: var(--accent-color);
     text-decoration: none;
     font-weight: 500;
-    display: inline-block;
-    margin-top: var(--spacing-sm);
+    transition: color 0.2s ease;
 }
 
-/* Hover-effekt for "Les mer"-lenke
-   Legger til understreking når musepekeren svever over
-   for å indikere at den er klikkbar */
 .project-link:hover {
-    text-decoration: underline;
+    color: var(--secondary-color);
+}
+
+.project-link::after {
+    content: '→';
+    margin-left: 0.5rem;
+    transition: transform 0.2s ease;
+}
+
+.project-link:hover::after {
+    transform: translateX(4px);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .projects-hero {
+        padding: var(--spacing-xl) 0;
+    }
+
+    .projects-hero h1 {
+        font-size: 2rem;
+    }
+
+    .hero-description {
+        font-size: 1rem;
+    }
+
+    .filter-options {
+        flex-direction: column;
+        align-items: stretch;
+        gap: var(--spacing-md);
+    }
+
+    .filter-group {
+        width: 100%;
+    }
+
+    .custom-select {
+        width: 100%;
+    }
+
+    .projects-grid {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-md);
+        padding: 0 var(--spacing-md);
+    }
+
+    .project-card {
+        max-width: 500px;
+        margin: 0 auto;
+    }
 }

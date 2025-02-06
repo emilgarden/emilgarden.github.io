@@ -3,100 +3,183 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Prosjekter - Emil Garden</title>
-    <link rel="stylesheet" href="../css/variables.css">
-    <link rel="stylesheet" href="../css/normalize.css">
-    <link rel="stylesheet" href="../css/main.css">
-    <link rel="stylesheet" href="../css/project.css">
+    <title>Prosjekter - Ole Emil Øygarden</title>
+    
+    <!-- Base stiler -->
+    <link rel="stylesheet" href="../../css/base/variables.css">
+    <link rel="stylesheet" href="../../css/base/normalize.css">
+    <link rel="stylesheet" href="../../css/base/main.css">
+    
+    <!-- Komponent stiler -->
+    <link rel="stylesheet" href="../../css/components/navigation.css">
+    <link rel="stylesheet" href="../../css/components/footer.css">
+    <link rel="stylesheet" href="../../css/components/project-card.css">
+    
+    <!-- Page spesifikk stil -->
+    <link rel="stylesheet" href="../../css/pages/projects.css">
+    
+    <!-- Google Fonts -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap">
 </head>
 <body>
+    <!-- Navigation -->
     <nav class="main-nav">
         <div class="container">
-            <ul>
-                <li><a href="../index.html">Hjem</a></li>
-                <li><a href="index.html" class="active">Prosjekter</a></li>
-                <li><a href="../blogg/index.html">Blogg</a></li>
-                <li><a href="../interesser/index.html">Interesser</a></li>
-                <li><a href="../om/index.html">Om Meg</a></li>
-            </ul>
+            <div class="nav-content">
+                <div class="nav-brand">
+                    <a href="../../index.html">OEØ</a>
+                </div>
+
+                <button class="nav-toggle" aria-label="Åpne meny">
+                    &#9776;
+                </button>
+
+                <ul class="nav-links">
+                    <li><a href="../../index.html">Hjem</a></li>
+                    <li><a href="index.html" class="active">Prosjekter</a></li>
+                    <li><a href="../blog/index.html">Blogg</a></li>
+                    <li><a href="../interests/index.html">Interesser</a></li>
+                    <li><a href="../about/index.html">Om Meg</a></li>
+                </ul>
+            </div>
         </div>
     </nav>
-    
-    <header class="page-header">
+
+    <!-- Hero Section -->
+    <header class="projects-hero">
         <div class="container">
             <h1>Mine Prosjekter</h1>
-            <p>En samling av mine tekniske og kreative prosjekter</p>
+            <p class="hero-description">
+                Her finner du en samling av mine tekniske prosjekter. Hvert prosjekt representerer ulike utfordringer og løsninger, fra webutvikling til maskinlæring. Prosjektene er merket med status og teknologier for enkel navigering.
+            </p>
         </div>
     </header>
 
-    <main class="container">
-        <section class="project-grid">
-            <!-- Prosjektkort 1 -->
-            <article class="project-card">
-                <div class="project-image">
-                    <img src="../assets/images/project1.jpg" alt="Personlig Nettside">
-                </div>
-                <div class="project-content">
-                    <h2>Personlig Nettside</h2>
-                    <p>En responsiv personlig nettside bygget fra bunnen av med fokus på moderne designprinsipper og brukervennlighet.</p>
-                    <div class="project-tech">
-                        <span class="tech-tag">HTML</span>
-                        <span class="tech-tag">CSS</span>
-                        <span class="tech-tag">JavaScript</span>
+    <!-- Filter Section -->
+    <div class="filter-section">
+        <div class="container">
+            <div class="filter-container">
+                <h2>Filtrer Prosjekter</h2>
+                <div class="filter-options">
+                    <div class="filter-group">
+                        <label for="status-filter">Status</label>
+                        <select id="status-filter" class="custom-select">
+                            <option value="all">Alle prosjekter</option>
+                            <option value="active">Aktive</option>
+                            <option value="completed">Fullførte</option>
+                        </select>
                     </div>
-                    <div class="project-links">
-                        <a href="#" class="project-link">Se live versjon</a>
-                        <a href="#" class="project-link">GitHub</a>
+                    
+                    <div class="filter-group">
+                        <label for="type-filter">Kategori</label>
+                        <select id="type-filter" class="custom-select">
+                            <option value="all">Alle kategorier</option>
+                            <option value="web">Webutvikling</option>
+                            <option value="app">Applikasjoner</option>
+                            <option value="ml">Maskinlæring</option>
+                        </select>
                     </div>
                 </div>
-            </article>
+            </div>
+        </div>
+    </div>
 
-            <!-- Prosjektkort 2 -->
-            <article class="project-card">
-                <div class="project-image">
-                    <img src="../assets/images/project2.jpg" alt="Webutvikling Prosjekt">
-                </div>
-                <div class="project-content">
-                    <h2>Nettbutikk Demo</h2>
-                    <p>En demonstrasjon av en moderne nettbutikk med handlekurv-funksjonalitet og responsivt design.</p>
-                    <div class="project-tech">
-                        <span class="tech-tag">React</span>
-                        <span class="tech-tag">Node.js</span>
-                        <span class="tech-tag">MongoDB</span>
+    <!-- Project Grid -->
+    <main class="projects-main">
+        <div class="container">
+            <div class="projects-grid">
+                <!-- Prosjektkort 1 -->
+                <article class="project-card">
+                    <div class="project-content">
+                        <div class="project-header">
+                            <h3>Prosjektnavn</h3>
+                            <span class="status-badge active">Aktiv</span>
+                        </div>
+                        <p>Kort beskrivelse av prosjektet som forklarer hovedmålet og teknologiene som ble brukt.</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">React</span>
+                            <span class="tech-tag">Node.js</span>
+                            <span class="tech-tag">MongoDB</span>
+                        </div>
+                        <a href="prosjekt1.html" class="project-link">Les mer</a>
                     </div>
-                    <div class="project-links">
-                        <a href="#" class="project-link">Se demo</a>
-                        <a href="#" class="project-link">Kildekode</a>
-                    </div>
-                </div>
-            </article>
+                </article>
 
-            <!-- Prosjektkort 3 -->
-            <article class="project-card">
-                <div class="project-image">
-                    <img src="../assets/images/project3.jpg" alt="Mobilapplikasjon">
-                </div>
-                <div class="project-content">
-                    <h2>Task Manager App</h2>
-                    <p>En mobilapplikasjon for effektiv oppgavehåndtering med fokus på enkelhet og brukervennlighet.</p>
-                    <div class="project-tech">
-                        <span class="tech-tag">Flutter</span>
-                        <span class="tech-tag">Firebase</span>
-                        <span class="tech-tag">Dart</span>
+                <!-- Prosjektkort 2 -->
+                <article class="project-card">
+                    <div class="project-content">
+                        <div class="project-header">
+                            <h3>Annet Prosjekt</h3>
+                            <span class="status-badge completed">Fullført</span>
+                        </div>
+                        <p>Beskrivelse av det andre prosjektet med fokus på hovedfunksjonalitet og tekniske løsninger.</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">Python</span>
+                            <span class="tech-tag">Django</span>
+                            <span class="tech-tag">PostgreSQL</span>
+                        </div>
+                        <a href="prosjekt2.html" class="project-link">Les mer</a>
                     </div>
-                    <div class="project-links">
-                        <a href="#" class="project-link">Last ned app</a>
-                        <a href="#" class="project-link">Se dokumentasjon</a>
-                    </div>
-                </div>
-            </article>
-        </section>
+                </article>
+            </div>
+        </div>
     </main>
 
-    <footer>
+    <!-- Footer -->
+    <footer class="site-footer">
         <div class="container">
-            <p>&copy; 2025 Emil Garden. Alle rettigheter forbeholdt.</p>
+            <div class="footer-content">
+                <!-- Merkevare/Om-seksjon -->
+                <div class="footer-brand">
+                    <h3>Ole Emil Øygarden</h3>
+                    <p>Utforsker og utvikler med fokus på teknologi, språk og kreative løsninger. 
+                       Alltid på jakt etter spennende prosjekter og nye utfordringer.</p>
+                </div>
+    
+                <!-- Navigasjon -->
+                <nav class="footer-nav" aria-label="Footer navigasjon">
+                    <h4>Navigasjon</h4>
+                    <ul>
+                        <li><a href="prosjekter/index.html">Prosjekter</a></li>
+                        <li><a href="blogg/index.html">Blogg</a></li>
+                        <li><a href="interesser/index.html">Interesser</a></li>
+                        <li><a href="om/index.html">Om Meg</a></li>
+                    </ul>
+                </nav>
+    
+                <!-- Sosiale medier -->
+                <div class="footer-social">
+                    <h4>Sosiale Medier</h4>
+                    <ul>
+                        <li>
+                            <a href="#" aria-label="Besøk min GitHub profil">
+                                <svg class="social-icon" aria-hidden="true" viewBox="0 0 24 24">
+                                    <path fill="currentColor" d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                                </svg>
+                                GitHub
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" aria-label="Besøk min LinkedIn profil">
+                                <svg class="social-icon" aria-hidden="true" viewBox="0 0 24 24">
+                                    <path fill="currentColor" d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+                                </svg>
+                                LinkedIn
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+    
+            <!-- Copyright -->
+            <div class="footer-bottom">
+                <p>&copy; <span id="currentYear">2025</span> Ole Emil Øygarden.</p>
+            </div>
         </div>
     </footer>
+
+    <!-- Scripts -->
+    <script src="../../js/components/navigation.js"></script>
+    <script src="../../js/main.js"></script>
 </body>
 </html>
