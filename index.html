@@ -16,6 +16,8 @@
 
     <!-- Kortspesifikke stiler -->
     <link rel="stylesheet" href="css/project-card.css">
+    <link rel="stylesheet" href="css/blog-card.css">
+    <link rel="stylesheet" href="css/interest-card.css">
     
     <!-- Seksjonsspesifikke stiler -->
     <link rel="stylesheet" href="css/blog.css">
@@ -130,17 +132,73 @@
             </div>
         </section>
 
-        <!-- Siste blogginnlegg -->
         <section class="latest-posts">
             <div class="container">
                 <h2 class="section-title">Siste fra Bloggen</h2>
                 <div class="post-grid">
+                    <!-- Bloggkort 1 -->
                     <article class="post-card">
                         <div class="post-content">
-                            <span class="post-date">28. januar 2025</span>
-                            <h3>Bloggtittel</h3>
-                            <p>Kort utdrag fra blogginnlegget...</p>
-                            <a href="#" class="post-link">Les mer</a>
+                            <div class="post-meta">
+                                <span class="post-date">28. januar 2025</span>
+                                <span class="post-category">Teknologi</span>
+                            </div>
+                            <h3>Hvordan jeg bygget min personlige nettside</h3>
+                            <p>En gjennomgang av prosessen med å designe og utvikle min egen portfolio og blogg, med fokus på modulær utvikling og beste praksis.</p>
+                            <div class="post-footer">
+                                <span class="reading-time">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <circle cx="12" cy="12" r="10"/>
+                                        <path d="M12 6v6l4 2"/>
+                                    </svg>
+                                    5 min lesing
+                                </span>
+                                <a href="blogg/web-utvikling.html" class="post-link">Les mer</a>
+                            </div>
+                        </div>
+                    </article>
+        
+                    <!-- Bloggkort 2 -->
+                    <article class="post-card">
+                        <div class="post-content">
+                            <div class="post-meta">
+                                <span class="post-date">25. januar 2025</span>
+                                <span class="post-category">Programmering</span>
+                            </div>
+                            <h3>Effektiv kodeorganisering i store prosjekter</h3>
+                            <p>Mine erfaringer og beste praksiser for å holde kodebasen ryddig og vedlikeholdbar i omfattende utviklingsprosjekter.</p>
+                            <div class="post-footer">
+                                <span class="reading-time">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <circle cx="12" cy="12" r="10"/>
+                                        <path d="M12 6v6l4 2"/>
+                                    </svg>
+                                    8 min lesing
+                                </span>
+                                <a href="blogg/kodeorganisering.html" class="post-link">Les mer</a>
+                            </div>
+                        </div>
+                    </article>
+        
+                    <!-- Bloggkort 3 -->
+                    <article class="post-card">
+                        <div class="post-content">
+                            <div class="post-meta">
+                                <span class="post-date">22. januar 2025</span>
+                                <span class="post-category">UX Design</span>
+                            </div>
+                            <h3>Brukeropplevelse i moderne webapplikasjoner</h3>
+                            <p>En analyse av hvordan god UX design kan forbedre brukerengasjement og konvertering i moderne web-applikasjoner.</p>
+                            <div class="post-footer">
+                                <span class="reading-time">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <circle cx="12" cy="12" r="10"/>
+                                        <path d="M12 6v6l4 2"/>
+                                    </svg>
+                                    6 min lesing
+                                </span>
+                                <a href="blogg/ux-design.html" class="post-link">Les mer</a>
+                            </div>
                         </div>
                     </article>
                 </div>
@@ -152,17 +210,99 @@
             <div class="container">
                 <h2 class="section-title">Mine Interesser</h2>
                 <div class="interests-grid">
+                    <!-- Interessekort 1 -->
                     <article class="interest-card">
+                        <div class="interest-header">
+                            <div class="interest-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M12 19l7-7 3 3-7 7-3-3z"/>
+                                    <path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"/>
+                                    <path d="M2 2l7.586 7.586"/>
+                                    <circle cx="11" cy="11" r="2"/>
+                                </svg>
+                            </div>
+                            <h3>Webutvikling</h3>
+                        </div>
                         <div class="interest-content">
-                            <h3>Interesse 1</h3>
-                            <p>Kort beskrivelse av interessen...</p>
-                            <a href="#" class="interest-link">Les mer</a>
+                            <p>Utforsker moderne webutvikling med fokus på brukeropplevelse og ytelse. Eksperimenterer med nye teknologier og rammeverk.</p>
+                            
+                            <div class="interest-resources">
+                                <ul class="resource-list">
+                                    <li><a href="#">MDN Web Docs</a></li>
+                                    <li><a href="#">CSS-Tricks</a></li>
+                                </ul>
+                            </div>
+                            
+                            <div class="interest-progress">
+                                <div class="progress-bar" style="width: 85%;"></div>
+                            </div>
+                            
+                            <a href="interesser/webutvikling.html" class="interest-link">Utforsk mer</a>
+                        </div>
+                    </article>
+        
+                    <!-- Interessekort 2 -->
+                    <article class="interest-card">
+                        <div class="interest-header">
+                            <div class="interest-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M12 2L2 7l10 5 10-5-10-5z"/>
+                                    <path d="M2 17l10 5 10-5"/>
+                                    <path d="M2 12l10 5 10-5"/>
+                                </svg>
+                            </div>
+                            <h3>Maskinlæring</h3>
+                        </div>
+                        <div class="interest-content">
+                            <p>Fordyper meg i maskinlæring og AI, med spesiell interesse for naturlig språkprosessering og dyp læring.</p>
+                            
+                            <div class="interest-resources">
+                                <ul class="resource-list">
+                                    <li><a href="#">Fast.ai</a></li>
+                                    <li><a href="#">PyTorch Docs</a></li>
+                                </ul>
+                            </div>
+                            
+                            <div class="interest-progress">
+                                <div class="progress-bar" style="width: 70%;"></div>
+                            </div>
+                            
+                            <a href="interesser/maskinlaering.html" class="interest-link">Utforsk mer</a>
+                        </div>
+                    </article>
+        
+                    <!-- Interessekort 3 -->
+                    <article class="interest-card">
+                        <div class="interest-header">
+                            <div class="interest-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <rect x="2" y="3" width="20" height="14" rx="2" ry="2"/>
+                                    <line x1="8" y1="21" x2="16" y2="21"/>
+                                    <line x1="12" y1="17" x2="12" y2="21"/>
+                                </svg>
+                            </div>
+                            <h3>UI/UX Design</h3>
+                        </div>
+                        <div class="interest-content">
+                            <p>Studerer brukergrensesnittdesign og brukeropplevelse, med fokus på tilgjengelighet og inkluderende design.</p>
+                            
+                            <div class="interest-resources">
+                                <ul class="resource-list">
+                                    <li><a href="#">Nielsen Norman Group</a></li>
+                                    <li><a href="#">Smashing Magazine</a></li>
+                                </ul>
+                            </div>
+                            
+                            <div class="interest-progress">
+                                <div class="progress-bar" style="width: 75%;"></div>
+                            </div>
+                            
+                            <a href="interesser/ui-ux-design.html" class="interest-link">Utforsk mer</a>
                         </div>
                     </article>
                 </div>
             </div>
         </section>
-    </main>
 
     <footer class="site-footer">
         <div class="container">

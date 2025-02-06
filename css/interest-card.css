@@ -1,0 +1,162 @@
+/* interest-card.css */
+
+.interests {
+    padding: var(--spacing-xl) 0;
+    background-color: var(--background-color);
+}
+
+/* Grid for interessekort */
+.interests-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: var(--spacing-lg);
+    margin-top: var(--spacing-lg);
+}
+
+/* Interessekort */
+.interest-card {
+    background: white;
+    border-radius: var(--border-radius);
+    position: relative;
+    transition: all 0.3s ease;
+    border: 1px solid var(--border-color);
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.interest-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+}
+
+/* Interessekort header med ikon */
+.interest-header {
+    padding: var(--spacing-md);
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-md);
+    border-bottom: 1px solid var(--border-color);
+}
+
+.interest-icon {
+    width: 48px;
+    height: 48px;
+    padding: 10px;
+    border-radius: 12px;
+    background-color: var(--light-gray);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.interest-icon svg {
+    width: 24px;
+    height: 24px;
+    color: var(--primary-color);
+}
+
+/* Interessekort innhold */
+.interest-content {
+    padding: var(--spacing-md);
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.interest-content h3 {
+    font-size: 1.25rem;
+    color: var(--primary-color);
+    margin-bottom: var(--spacing-sm);
+}
+
+.interest-content p {
+    color: var(--text-color);
+    line-height: 1.6;
+    margin-bottom: var(--spacing-md);
+    flex-grow: 1;
+}
+
+/* Ressursliste */
+.interest-resources {
+    margin-top: auto;
+    border-top: 1px solid var(--border-color);
+    padding-top: var(--spacing-sm);
+}
+
+.resource-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.resource-list li {
+    margin-bottom: 0.5rem;
+    font-size: 0.9rem;
+}
+
+.resource-list a {
+    color: var(--accent-color);
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: color 0.2s ease;
+}
+
+.resource-list a:hover {
+    color: var(--secondary-color);
+}
+
+/* Les mer lenke */
+.interest-link {
+    display: inline-flex;
+    align-items: center;
+    color: var(--accent-color);
+    text-decoration: none;
+    font-weight: 500;
+    margin-top: var(--spacing-md);
+    transition: all 0.2s ease;
+}
+
+.interest-link:hover {
+    color: var(--secondary-color);
+}
+
+.interest-link::after {
+    content: '→';
+    margin-left: 0.5rem;
+    transition: transform 0.2s ease;
+}
+
+.interest-link:hover::after {
+    transform: translateX(4px);
+}
+
+/* Progress indikator */
+.interest-progress {
+    height: 4px;
+    background-color: var(--light-gray);
+    border-radius: var(--border-radius);
+    margin-top: var(--spacing-sm);
+    overflow: hidden;
+}
+
+.progress-bar {
+    height: 100%;
+    background-color: var(--accent-color);
+    transition: width 0.3s ease;
+}
+
+/* Responsiv design */
+@media (max-width: 768px) {
+    .interests-grid {
+        grid-template-columns: 1fr;
+        padding: 0 var(--spacing-md);
+    }
+    
+    .interest-card {
+        max-width: 500px;
+        margin: 0 auto;
+    }
+}
